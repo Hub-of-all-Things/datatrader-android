@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:id="@+id/settingsLayout"
+              android:background="#ffffff"
+              android:orientation="vertical">
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:fillViewport="true">
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginLeft="1dp"
+                      android:layout_marginRight="1dp"
+                      android:background="#f5f5f5"
+                      android:orientation="vertical"
+        >
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:fontFamily="@font/open_sans_condensed_bold"
+                    android:text="@string/datatrader_settings" android:visibility="visible"/>
+
+            <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/settings_button_background"
+                    android:text="@string/tech_support"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp"
+                    android:drawableEnd="@drawable/forward_small_settings"
+                    android:textAlignment="viewStart"
+                    android:stateListAnimator="@null"
+                    android:id="@+id/techSupportSettings"
+                    android:textAllCaps="false"
+                    android:textColor="@drawable/text_color_btn" android:visibility="visible"
+                    android:fontFamily="@font/open_sans_condensed_bold"/>
+
+
+            <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/settings_button_background"
+                    android:text="@string/terms_of_service"
+                    android:textAlignment="viewStart"
+                    android:paddingStart="15dp"
+                    android:stateListAnimator="@null"
+                    android:paddingEnd="15dp"
+                    android:drawableEnd="@drawable/forward_small_settings"
+                    android:textAllCaps="false"
+                    android:textColor="@drawable/text_color_btn" android:fontFamily="@font/open_sans_condensed_bold"
+                    android:id="@+id/termsSettings" android:visibility="visible"/>
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:fontFamily="@font/open_sans_condensed_bold"
+                    android:text="@string/my_account"/>
+
+
+            <Button
+                    android:id="@+id/goToMyHatApp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:stateListAnimator="@null"
+                    android:background="@drawable/settings_button_background"
+                    android:drawableEnd="@drawable/exit_button_settings"
+                    android:fontFamily="@font/open_sans_condensed_bold"
+                    android:paddingEnd="15dp"
+                    android:paddingStart="15dp"
+                    android:text="@string/go_to_my_hat_app"
+                    android:textAlignment="viewStart"
+                    android:textAllCaps="false"
+                    android:textColor="@drawable/text_color_btn"/>
+            <Button
+                    android:id="@+id/managePreferencesSettings"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:stateListAnimator="@null"
+                    android:background="@drawable/settings_button_background"
+                    android:fontFamily="@font/open_sans_condensed_bold"
+                    android:paddingEnd="15dp"
+                    android:paddingStart="15dp"
+                    android:text="@string/manage_my_preferences"
+                    android:textAlignment="viewStart"
+                    android:textAllCaps="false"
+                    android:textColor="@drawable/text_color_btn"/>
+
+            <Button
+                    android:id="@+id/hatEnabledDataSettings"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/settings_button_background"
+                    android:fontFamily="@font/open_sans_condensed_bold"
+                    android:paddingEnd="15dp"
+                    android:paddingStart="15dp"
+                    android:text="@string/see_my_hat_enabled_data"
+                    android:stateListAnimator="@null"
+
+                    android:textAlignment="viewStart"
+                    android:textAllCaps="false"
+                    android:textColor="@drawable/text_color_btn"/>
+
+            <Button
+                    android:id="@+id/transactionHistory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/settings_button_background"
+                    android:stateListAnimator="@null"
+
+                    android:fontFamily="@font/open_sans_condensed_bold"
+                    android:paddingEnd="15dp"
+                    android:paddingStart="15dp"
+                    android:text="@string/see_my_data_transaction_history"
+                    android:textAlignment="viewStart"
+                    android:textAllCaps="false"
+                    android:textColor="@drawable/text_color_btn"/>
+
+            <Button
+                    android:id="@+id/resetPasswordSettings"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:stateListAnimator="@null"
+
+                    android:background="@drawable/settings_button_background"
+                    android:fontFamily="@font/open_sans_condensed_bold"
+                    android:paddingEnd="15dp"
+                    android:paddingStart="15dp"
+                    android:text="@string/reset_password"
+                    android:textAlignment="viewStart"
+                    android:textAllCaps="false"
+                    android:textColor="@drawable/text_color_btn"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+            android:id="@+id/logoutSettings"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="20dp"
+            android:stateListAnimator="@null"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/button_enabled_rounded"
+            android:fontFamily="@font/roboto_medium"
+            android:gravity="center"
+            android:text="@string/log_out"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"/>
+</LinearLayout>

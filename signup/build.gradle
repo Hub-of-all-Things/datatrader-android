@@ -1,0 +1,8 @@
+apply from: "../common-android-library.gradle"
+
+dependencies {
+    implementation project(Modules.markdown)
+    implementation SupportLibraries.appcompat
+    implementation SupportLibraries.design
+    implementation Libraries.passwordzxcvbn
+}

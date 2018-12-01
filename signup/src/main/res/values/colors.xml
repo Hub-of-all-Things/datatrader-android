@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="error_message">#40E36682</color>
+    <color name="error_border">#e36682</color>
+    <color name="colorButtonEnabled">#6297b1</color>
+    <color name="colorButtonDisabled">#e0e0e0</color>
+    <color name="toolbar_color">#4a556b</color>
+    <color name="white_color">#ffffff</color>
+
+    <color name="passwordStrengthDefault">#d8d8d8</color>
+    <color name="passwordStrengthRed">#e36682</color>
+    <color name="passwordStrengthGreen">#8abb9c</color>
+    <color name="passwordStrengthYellow">#f0c400</color>
+</resources>

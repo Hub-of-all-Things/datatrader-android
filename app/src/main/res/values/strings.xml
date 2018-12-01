@@ -1,0 +1,50 @@
+<resources>
+    <string name="app_name">DataTraderTest</string>
+    <string name="service_of_hat_lab">Service of hat lab</string>
+    <string name="data_trader">Data trader</string>
+    <string name="data_trader_logo">Data trader logo</string>
+    <string name="login">LOGIN</string>
+    <string name="create_account">Create account</string>
+    <string name="login_to_datatrader_give_using_your_hat_private_data_account">Login to DataTrader GIVE using your HAT\n
+        private data account
+    </string>
+    <string name="yourhatname">yourhatname</string>
+    <string name="hubofallthings_net">.hubofallthings.net</string>
+    <string name="next">NEXT</string>
+
+    <string name="drawer_open">open</string>
+    <string name="drawer_close">close</string>
+    <string name="donate_your_data_for_research">Donate your data for research</string>
+    <string name="give_data_to_good_causes_perhaps_a_university_for_research_or_a_charity_you_support">Give data to good
+        causes, perhaps a university for\n research, or a charity you support
+    </string>
+    <string name="exchange_your_data_for_benefits">Exchange your data for benefits</string>
+    <string name="share_your_data_and_in_exchange_receive_exclusive_gifts_vouchers_and_discounts">Share your data and in
+        exchange receive exclusive gifts,\n vouchers and discounts
+    </string>
+    <string name="monetise_the_value_of_your_data">Monetise the value of your data</string>
+    <string name="make_money_from_your_data_by_sharing_what_you_feel_comfortable_with">Make money from your data by
+        sharing what you feel\n comfortable with
+    </string>
+    <string name="exchange_onboarding_screen_image">Exchange OnBoarding Screen Image</string>
+    <string name="monetise_the_value_of_your_data_on_boarding_image">Monetise the value of your data On Boarding Image
+    </string>
+    <string name="donate_your_data_for_research_on_boarding_image">Donate your data for research on boarding image
+    </string>
+    <string name="skip">SKIP</string>
+    <string name="done">DONE</string>
+    <string name="on_boarding_forward_arrow">On boarding forward arrow</string>
+    <string name="datatrader_settings">DataTrader settings</string>
+    <string name="hat_settings">SETTINGS</string>
+    <string name="browse_offers">BROWSE OFFERS</string>
+
+    <string name="tech_support">Tech support</string>
+    <string name="terms_of_service">Terms of service</string>
+    <string name="my_account">My account</string>
+    <string name="go_to_my_hat_app">Go to my HAT app</string>
+    <string name="manage_my_preferences">Manage my preferences</string>
+    <string name="see_my_hat_enabled_data">See my HAT enabled data</string>
+    <string name="see_my_data_transaction_history">See my data transaction history</string>
+    <string name="reset_password">Reset password</string>
+    <string name="log_out">LOG OUT</string>
+</resources>

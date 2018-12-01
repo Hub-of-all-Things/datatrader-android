@@ -1,0 +1,10 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.hubofallthings.login">
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <application>
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".WebActivity" />
+        <activity android:name=".HATDomainActivity" />
+        <meta-data android:name="preloaded_fonts" android:resource="@array/preloaded_fonts"/>
+    </application>
+</manifest>

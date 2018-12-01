@@ -1,0 +1,54 @@
+<resources>
+
+    <string name="your_hat_name">yourhatname</string>
+    <string name="your_hat_domain">.yourhatdomain</string>
+
+    <string name="subscribe_to">Please let us know which of the following\nyou wish to subscribe to:</string>
+
+    <string name="create_account_toolbar">CREATE ACCOUNT</string>
+    <string name="first_name_create"><font size="14">First Name</font></string>
+    <string name="last_name_create"><font size="14">Last Name</font></string>
+    <string name="email_address_create"><font size="14">Email address</font></string>
+
+
+    <string name="create_username_toolbar">CHOOSE HAT USERNAME</string>
+    <string name="your_name">yourname</string>
+    <string name="your_hat_username"><font size="14">yourHATusername</font></string>
+    <string name="your_microserver_name">Please choose your HAT microserver domain name.</string>
+    <string name="username_nocaps">It can only contain alphanumeric characters (cannot start with a number or have caps). The entire domain name has to be between 4 and 22 characters in length.</string>
+
+    <string name="create_password_toolbar">CREATE PASSWORD</string>
+    <string name="password_must_marked">Passwords must be marked with score 3 or Higher</string>
+    <string name="your_password"><font size="14">your password</font></string>
+    <string name="data_is_precious">Your data is precious - keep it safe with a password that is Strong or Very Strong on this scale</string>
+    <string name="example_password">Example: unicorn-coffee-taco</string>
+    <string name="combination_words">A combination of three random words is one of the strongest passwords, and the kind we recommend. Read on how we determine password strength policy (and why it\'s so important) on our developers pages.</string>
+
+    <string name="my_account">MY ACCOUNT</string>
+    <string name="confirm_button">CONFIRM</string>
+    <string name="free_hat_account">FREE HAT ACCOUNT</string>
+    <string name="signing_up_microserver">You are signing up to a HAT MICROSERVER\naccount with 1GB of storage</string>
+    <string name="by_selecting_confirm_terms">By selecting \'Confirm\' I agree that I have read and accept the HAT Terms and Conditions and Privacy Policy</string>
+
+    <string name="email_address">Email Address</string>
+    <string name="create_account_msg">The information is purely used to create your HAT. Your personal information will never be shared with anyone unless you authorise it.</string>
+    <string name="have_account">Have an account? Login</string>
+
+    <string name="success_free_hat">Success! Your FREE HAT has been created. </string>
+    <string name="one_gb_storage">We have given you 1GB storage to begin</string>
+    <string name="own_private_cloud">You’ve now got your own private cloud microserver to store your personal data</string>
+    <string name="tip_web_browser">Tip. You can do more with your HAT on a browser.</string>
+    <string name="please_wait">PLEASE WAIT</string>
+    <string name="login_to_hat">LOGIN TO YOUR HAT</string>
+    <string name="next">NEXT</string>
+
+    <string name="hubofallthings">.hubofallthings.net</string>
+    <string name="hubat">.hubat.net</string>
+    <string name="hatdirect">.hat.direct</string>
+
+    <string name="password_strength_poor">Poor</string>
+    <string name="password_strength_average">Average</string>
+    <string name="password_strength_strong">Strong</string>
+    <string name="password_strength_very_strong">Very strong</string>
+</resources>
+

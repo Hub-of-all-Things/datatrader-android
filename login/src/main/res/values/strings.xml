@@ -1,0 +1,22 @@
+<resources>
+    <string name="log_in">LOG IN</string>
+    <string name="sorry_hat_name_doent_exist">Sorry that HAT name doesn’t exist</string>
+    <string name="your_hat_name">yourhatname</string>
+    <string name="your_hat_domain">.yourhatdomain</string>
+    <string name="enter_hat_name"><font size="14">Enter HAT name</font></string>
+    <string name="select_hat_domain"><font size="14">Select HAT domain</font></string>
+    <string name="select_hat_domain_toolbar">SELECT HAT DOMAIN</string>
+    <string name="tapping_next">After tapping "next" you will be re-directed to your HAT to enter your password</string>
+    <string name="next">NEXT</string>
+
+    <string name="hubofallthings">.hubofallthings.net</string>
+    <string name="hubat">.hubat.net</string>
+    <string name="hatdirect">.hat.direct</string>
+
+    <string name="login_to_datatrader_give_using_your_hat_private_data_account">Login to DataTrader GIVE using your HAT\n
+        private data account
+    </string>
+    <string name="yourhatname">yourhatname</string>
+    <string name="hubofallthings_net">.hubofallthings.net</string>
+</resources>
+

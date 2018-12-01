@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="error_message">#40E36682</color>
+    <color name="error_border">#e36682</color>
+    <color name="colorButtonEnabled">#6297b1</color>
+    <color name="colorButtonDisabled">#e0e0e0</color>
+    <color name="toolbar_color">#4a556b</color>
+    <color name="white_color">#ffffff</color>
+
+    <color name="mainBackgroundFilter">#994a556b</color>
+    <color name="loginBtnColor">#efc42e</color>
+    <color name="darkBlueBackground">#4b556a</color>
+    <color name="greyLight">#9a9a9a</color>
+
+</resources>

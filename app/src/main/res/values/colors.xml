@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="mainBackgroundFilter">#994a556b</color>
+    <color name="loginBtnColor">#efc42e</color>
+    <color name="darkBlueBackground">#4b556a</color>
+    <color name="greyLight">#9a9a9a</color>
+    <color name="lightBlueDrawer">#6397b0</color>
+
+    <color name="dot_light_screen">#efc42e</color>
+    <color name="dot_dark_screen">#7aefc42e</color>
+
+    <color name="expired_date_color">#474747</color>
+
+
+
+    <array name="array_dot_active">
+        <item>@color/dot_light_screen</item>
+        <item>@color/dot_light_screen</item>
+        <item>@color/dot_light_screen</item>
+        <item>@color/dot_light_screen</item>
+        <item>@color/dot_light_screen</item>
+
+    </array>
+
+    <array name="array_dot_inactive">
+        <item>@color/dot_dark_screen</item>
+        <item>@color/dot_dark_screen</item>
+        <item>@color/dot_dark_screen</item>
+        <item>@color/dot_dark_screen</item>
+        <item>@color/dot_dark_screen</item>
+    </array>
+</resources>

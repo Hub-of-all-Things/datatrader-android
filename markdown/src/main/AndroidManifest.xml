@@ -1,0 +1,9 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.hubofallthings.markdown">
+    <application>
+        <activity
+                android:name=".activity.MarkDownActivity"
+                android:configChanges="orientation"
+                android:screenOrientation="portrait"/>
+    </application>
+</manifest>

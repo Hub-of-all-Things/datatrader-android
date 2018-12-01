@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical"
+        android:background="@color/toolbar_color"
+        android:theme="@style/SignUpTheme"
+        android:id="@+id/create_account_confirmation_layout"
+>
+    <android.support.v7.widget.Toolbar
+            android:id="@+id/confirmation_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bar_height"
+            android:paddingTop="@dimen/bar_padding"
+            android:background="@color/toolbar_color"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+        <ImageView
+                android:id="@+id/back_button_create_optins"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="5dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:src="@drawable/back_arrow_toolbar"
+        />
+
+        <TextView
+                android:id="@+id/toolbar_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/roboto_medium"
+                android:text="@string/my_account"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+        />
+    </android.support.v7.widget.Toolbar>
+
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:gravity="center|top"
+            android:orientation="vertical">
+        <ImageView
+                android:id="@+id/settingsImage"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                app:srcCompat="@drawable/hat_blank_white_logo"/>
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="25dp"
+                android:fontFamily="@font/roboto_medium"
+                android:text="@string/subscribe_to"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="12sp"
+                android:textStyle="bold"/>
+        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:orientation="vertical"
+                      android:layout_marginStart="20dp"
+                      android:layout_marginEnd="20dp">
+
+            <CheckBox
+                    android:text="MadHATTERs (Tech news with an attitude)"
+                    android:layout_width="match_parent"
+
+                    android:layout_height="wrap_content" android:id="@+id/optinMadHATTERSBtn" android:checked="false"
+                    android:fontFamily="@font/roboto_medium" android:textColor="@android:color/white"
+                    android:textSize="12sp"/>
+            <CheckBox
+                    android:text="Monthly HAT Updates"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="wrap_content" android:id="@+id/optinHatMonthlyBtn"
+                    android:fontFamily="@font/roboto_medium" android:textColor="@android:color/white"
+                    android:textSize="12sp"/>
+            <CheckBox
+                    android:text="HAT Ecosystem Updates from the Foundation"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="wrap_content" android:id="@+id/optinHCFBtn"
+                    android:fontFamily="@font/roboto_medium" android:textColor="@android:color/white"
+                    android:textSize="12sp"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center|bottom"
+            android:orientation="vertical"
+    >
+
+        <TextView
+                android:id="@+id/termsTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                android:fontFamily="@font/roboto_medium"
+                android:text="You can change your mind at any time by clicking the unsubscribe link in the footer of any email you receive from us, or by contacting us at contact@hatdex.org. We will treat your information with respect. For more information about our privacy practices please visit our website. By clicking below, you agree that we may process your information in accordance with these terms."
+                android:textColor="@android:color/white"
+                android:textSize="10sp"
+                android:textAlignment="center"/>
+
+        <Button
+                android:id="@+id/nextBtnSubscribe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="50dp"
+                android:layout_marginStart="50dp"
+                android:stateListAnimator="@null"
+                android:layout_marginBottom="30dp"
+
+                android:background="@drawable/button_enabled_rounded"
+                android:text="@string/next"
+                android:textAlignment="center"
+                android:textColor="#ffffff"
+                android:textStyle="bold"/>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,30 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.hubofallthings.signup">
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <application>
+        <activity
+                android:name=".activity.CreateAccountActivity"
+                android:configChanges="orientation"
+                android:screenOrientation="portrait"/>
+        <activity
+                android:name=".activity.CreateUsernameActivity"
+                android:configChanges="orientation"
+                android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activity.CreatePasswordActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity
+                android:name=".activity.CreateAccountOptins"
+                android:configChanges="orientation"
+                android:screenOrientation="portrait"/>
+        <activity
+                android:name=".activity.CreateConfirmationActivity"
+                android:configChanges="orientation"
+                android:screenOrientation="portrait"/>
+        <activity
+                android:name=".activity.CreateAccountFinal"
+                android:configChanges="orientation"
+                android:screenOrientation="portrait"/>
+    </application>
+</manifest>

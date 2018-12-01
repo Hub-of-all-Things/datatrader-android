@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+                                             android:layout_height="match_parent"
+android:background="@color/darkBlueBackground">
+
+    <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+            android:background="#ffffff"
+            app:layout_constraintEnd_toEndOf="parent" android:id="@+id/constraintLayout2"
+            android:visibility="visible">
+
+        <ImageView
+                android:layout_width="33dp"
+                android:layout_height="35dp" app:srcCompat="@drawable/data_trader_logo_sign"
+                android:id="@+id/logoSmallImg"
+                app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="8dp" android:layout_marginTop="34dp"
+        />
+        <TextView
+                android:text="@string/login_to_datatrader_give_using_your_hat_private_data_account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView2" android:layout_marginTop="24dp"
+                app:layout_constraintTop_toBottomOf="@+id/logoSmallImg"
+                android:layout_marginStart="8dp" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"
+                android:textAlignment="center"/>
+        <TextView
+                android:text="Learn more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView3"
+                android:textColor="@color/darkBlueBackground" android:fontFamily="@font/open_sans_condensed_bold"
+                android:textSize="16sp" android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@+id/textView2" android:layout_marginStart="8dp"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toEndOf="parent" android:layout_marginBottom="24dp"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+    </android.support.constraint.ConstraintLayout>
+    <ImageView
+            android:layout_width="55dp"
+            android:layout_height="55dp" app:srcCompat="@drawable/hat_blank_white_logo"
+            android:id="@+id/imageView5" android:layout_marginTop="49dp"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"/>
+    <ImageView
+            android:layout_width="287dp"
+            android:layout_height="24dp" app:srcCompat="@drawable/enter_your_hat_address"
+            android:id="@+id/imageView6" android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/imageView5" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"/>
+    <RelativeLayout
+            android:layout_width="280dp"
+            android:layout_height="50dp"
+            android:background="#ffffff"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp" app:layout_constraintTop_toBottomOf="@+id/imageView6"
+            android:id="@+id/textInputLayout">
+
+        <EditText
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:background="#ffffff"
+                android:textColorHint="@color/greyLight"
+                android:hint="@string/yourhatname" android:fontFamily="@font/roboto"
+                android:id="@+id/hatUserDomainLoginEt"/>
+        <TextView
+                android:text="@string/hubofallthings_net"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content" android:id="@+id/hatDomainLoginEt"
+                android:textAlignment="textEnd" android:textColor="@color/darkBlueBackground"
+                android:fontFamily="@font/open_sans_condensed_bold" android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true" android:layout_marginEnd="1dp"/>
+    </RelativeLayout>
+    <ImageView
+            android:layout_width="280dp"
+            android:layout_height="44dp" app:srcCompat="@drawable/after_clicking_next"
+            android:id="@+id/imageView7" android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"/>
+    <Button
+            android:text="@string/next"
+            android:layout_width="150dp"
+            android:layout_height="44dp"
+            android:id="@+id/nextLoginBtn" android:layout_marginBottom="50dp"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" android:background="@drawable/login_button_rounded"
+            android:textColor="@color/darkBlueBackground" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/imageView7"
+            app:layout_constraintVertical_bias="1.0"/>
+</android.support.constraint.ConstraintLayout>
