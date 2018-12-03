@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.hubofallthings.datatrader.R
+import com.hubofallthings.datatrader.service.SettingsServices
+import kotlinx.android.synthetic.main.settings_fragment.*
 
 class SettingsFragment : Fragment() , View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,13 +23,13 @@ class SettingsFragment : Fragment() , View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        logoutSettings.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
         when(v?.id){
             R.id.logoutSettings -> {
-//                mSettingsServices.logout()
+                SettingsServices().logout(activity)
             }
         }
     }

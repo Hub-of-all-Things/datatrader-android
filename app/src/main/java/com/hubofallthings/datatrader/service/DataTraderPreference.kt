@@ -11,7 +11,7 @@ class DataTraderPreference(private val context : Context){
     val pref = context.getSharedPreferences(PREFERENCE_NAME,Context.MODE_PRIVATE)
 
 
-    fun deletePreference(context: Context){
+    fun deletePreference(){
         context.getSharedPreferences(PREFERENCE_NAME, Context.MODE_PRIVATE).edit().clear().apply()
     }
     fun getToken():String{

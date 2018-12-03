@@ -3,5 +3,4 @@ apply from: "../common-android-library.gradle"
 dependencies {
     implementation SupportLibraries.appcompat
     implementation SupportLibraries.design
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
 }

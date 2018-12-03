@@ -38,5 +38,6 @@ dependencies {
     implementation Libraries.fuel
     implementation HATApiLibrary.api
     implementation Libraries.jackson
+    implementation SupportLibraries.constraint
 }
 

@@ -14,6 +14,8 @@
 
     <color name="expired_date_color">#474747</color>
 
+    <color name="browse_image_filter">#4c4b556a</color>
+
 
 
     <array name="array_dot_active">

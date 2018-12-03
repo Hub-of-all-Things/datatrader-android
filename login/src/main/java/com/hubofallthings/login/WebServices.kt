@@ -8,9 +8,9 @@ import android.widget.Toast
 import com.hubofallthings.android.hatApi.HATError
 
 class WebServices(private var activity: Activity) {
-    var urlScheme:String = "databuyer"
-    var serviceName:String = "databuyer"
-    var localAuthHost:String = "databuyerhost"
+    var urlScheme:String = "datatrader"
+    var serviceName:String = "datatrader"
+    var localAuthHost:String = "datatrader"
 
     //success result from login to HAT , go to DrawerActivity
     fun signInSuccess (userDomain : String? , newToken : String?){
@@ -30,13 +30,13 @@ class WebServices(private var activity: Activity) {
     }
     fun getHatLoginURL(userDomain: String): String {
         serviceName = getServiceNameValue()
-        return "https://$userDomain/#/hatlogin?name=$serviceName&redirect=$urlScheme://$localAuthHost&fallback=databuyer://loginfailed"
+        return "https://$userDomain/#/hatlogin?name=$serviceName&redirect=$urlScheme://$localAuthHost&fallback=datatrader://loginfailed"
     }
     fun getServiceNameValue() : String {
         return if(BuildConfig.BUILD_TYPE.contentEquals("release")) {
-            "databuyer"
+            "datatraderstaging"
         }else {
-            "databuyer"
+            "datatraderstaging"
         }
     }
 

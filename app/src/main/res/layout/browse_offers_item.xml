@@ -5,44 +5,47 @@
                                              android:layout_marginStart="10dp"
                                              android:elevation="3dp"
                                              android:layout_marginEnd="10dp"
-                                             android:layout_marginTop="10dp"
+                                             android:layout_marginTop="20dp"
                                              android:background="@drawable/background_layout_without_border"
                                              android:layout_height="300dp">
 
     <ImageView
             android:layout_width="match_parent"
             android:layout_height="150dp" app:srcCompat="@drawable/ic_launcher_background"
-            android:id="@+id/broswer_image_preview" app:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/browseImagePreview" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            android:tint="@color/browse_image_filter"
             app:layout_constraintTop_toTopOf="parent" android:scaleType="centerCrop"/>
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/broswe_title"
-            app:layout_constraintTop_toBottomOf="@+id/broswer_image_preview"
+            android:id="@+id/browse_title"
+            app:layout_constraintTop_toBottomOf="@+id/browseImagePreview"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
             android:letterSpacing="0.05"
             android:layout_marginTop="20dp" android:text="Starbucks"
             android:fontFamily="@font/open_sans_condensed_bold" android:textColor="@color/darkBlueBackground"/>
     <TextView
             android:text="Students aged between 16-24, share your location with us and get your next coffee for free"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:id="@+id/textView7" android:layout_marginTop="7dp"
-            app:layout_constraintTop_toBottomOf="@+id/broswe_title" app:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/browseSubtitle" android:layout_marginTop="7dp"
+            app:layout_constraintTop_toBottomOf="@+id/browse_title" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="16dp" android:fontFamily="@font/open_sans_condensed_light"
-            android:textColor="@color/greyLight" android:textAlignment="textStart" android:layout_marginEnd="16dp"
+            android:textColor="@color/greyLight" android:textAlignment="viewStart" android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"/>
 
     <android.support.constraint.ConstraintLayout android:layout_width="394dp"
-                  android:orientation="horizontal"
-                  android:layout_height="20dp" app:layout_constraintTop_toBottomOf="@+id/textView7"
-                  android:layout_marginTop="32dp" app:layout_constraintStart_toStartOf="parent"
-                  android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
-                  android:gravity="center"
-                  android:layout_marginEnd="8dp">
+                                                 android:orientation="horizontal"
+                                                 android:layout_height="20dp"
+                                                 app:layout_constraintTop_toBottomOf="@+id/browseSubtitle"
+                                                 app:layout_constraintStart_toStartOf="parent"
+                                                 android:layout_marginStart="8dp"
+                                                 app:layout_constraintEnd_toEndOf="parent"
+                                                 android:gravity="center"
+                                                 android:layout_marginEnd="8dp" android:layout_marginBottom="20dp"
+                                                 app:layout_constraintBottom_toBottomOf="parent"
+                                                 android:id="@+id/bottomLayoutBrowse" android:layout_marginTop="20dp">
         <ImageView
                 android:layout_width="14dp"
                 android:layout_height="14dp" app:srcCompat="@drawable/calendar_icon_browse"
