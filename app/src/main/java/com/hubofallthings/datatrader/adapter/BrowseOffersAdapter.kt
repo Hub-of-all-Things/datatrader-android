@@ -24,7 +24,10 @@ import java.text.SimpleDateFormat
 import java.util.*
 import android.R.attr.thumbnail
 import android.graphics.drawable.Drawable
+import android.support.constraint.ConstraintLayout
 import com.bumptech.glide.RequestBuilder
+import com.hubofallthings.datatrader.activity.OfferDetailsActivity
+import java.io.Serializable
 
 
 class BrowseOffersAdapter// data is passed into the constructor
@@ -43,7 +46,7 @@ internal constructor(val activity: Activity, private val offers: List<DataOfferO
         .transforms(transformationCornerHeader)
 
     val thumbnail = Glide.with(activity)
-        .load(R.drawable.placeholder_browse_offers)
+        .load(R.drawable.browse_offers_placeholder)
         .apply(requestOptions)
 
 
@@ -60,13 +63,18 @@ internal constructor(val activity: Activity, private val offers: List<DataOfferO
         holder.browseSubtitle?.text = offer.shortDescription
         holder.browseTitle?.text = offer.title
         holder.expiredBrowseDate?.text = HATDateHelper().tryParseDateOutput(offer.offerExpires,"'Expires 'd MMM yyyy")
-
         Glide
             .with(activity)
             .load(offer.imageUrl)
             .apply(requestOptions)
             .thumbnail(thumbnail)
             .into(holder.browseImagePreview)
+
+        holder.browseOfferLayout.setOnClickListener {
+            val intent = Intent(activity, OfferDetailsActivity::class.java)
+            intent.putExtra("offer",offer as Serializable)
+            activity.startActivity(intent)
+        }
     }
 
     // total number of rows
@@ -85,6 +93,7 @@ internal constructor(val activity: Activity, private val offers: List<DataOfferO
         internal val browseTitle = itemView.findViewById(R.id.browse_title) as? TextView
         internal val browseSubtitle = itemView.findViewById(R.id.browseSubtitle) as? TextView
         internal val browseImagePreview = itemView.findViewById(R.id.browseImagePreview) as ImageView
+        internal val browseOfferLayout = itemView.findViewById(R.id.browseOfferLayout) as ConstraintLayout
 
         init {
             itemView.setOnClickListener(this)

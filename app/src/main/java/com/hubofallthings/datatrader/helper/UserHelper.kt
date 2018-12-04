@@ -7,6 +7,7 @@ import com.hubofallthings.datatrader.activity.MainActivity
 import com.hubofallthings.datatrader.encryption.KeyStoreWrapper
 import com.hubofallthings.datatrader.service.DataTraderPreference
 import com.hubofallthings.datatrader.service.EncryptionServices
+import com.nimbusds.jwt.JWT
 import javax.crypto.SecretKey
 
 class UserHelper(private val context: Context){

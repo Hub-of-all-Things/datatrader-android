@@ -15,7 +15,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/roboto"
-            android:text="FEED"
+            android:text="@string/browse_offers"
             android:textColor="#FFFFFF"
             android:textSize="15sp"/>
 

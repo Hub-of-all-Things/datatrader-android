@@ -21,7 +21,8 @@
 
         </activity>
         <activity android:name=".activity.OnboardingActivity">
-
+        </activity>
+        <activity android:name=".activity.OfferDetailsActivity">
         </activity>
         <meta-data android:name="preloaded_fonts" android:resource="@array/preloaded_fonts"/>
     </application>

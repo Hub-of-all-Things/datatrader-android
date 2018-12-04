@@ -77,6 +77,7 @@ class DrawerFragment : Fragment() , View.OnClickListener {
 
             }
         }))
+        openFragment(1)
         return views
     }
 
@@ -106,8 +107,10 @@ class DrawerFragment : Fragment() , View.OnClickListener {
                 if(currentActivity != position) {
                     currentActivity = position
                     removeAllFragment(BrowseOffersFragment())
-                    toolbarTitle!!.text = getString(R.string.browse_offers)
-                    toolbarDrawer?.setBackgroundColor(ContextCompat.getColor(context!!, R.color.toolbar_color))
+                    if (toolbarTitle != null) {
+                        toolbarTitle.text = getString(R.string.browse_offers)
+                        toolbarDrawer?.setBackgroundColor(ContextCompat.getColor(context!!, R.color.toolbar_color))
+                    }
                 }
             }
             2 -> {
