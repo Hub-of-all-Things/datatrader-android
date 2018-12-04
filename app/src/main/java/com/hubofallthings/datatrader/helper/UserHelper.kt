@@ -34,6 +34,13 @@ class UserHelper(private val context: Context){
         val intent = Intent(context, MainActivity::class.java)
         context.startActivity(intent)
     }
+    //encrypt the newToken and store it to Preference
+    fun encryptToken ( token : String?) {
+        val mEncryptionServices = EncryptionServices(context)
+        mEncryptionServices.createMasterKey(null)
+        val encryptedToken = mEncryptionServices.encrypt(token, null)
+        mPreference.setToken(encryptedToken)
+    }
     private fun getMasterKey(): SecretKey?{
         val DEFAULT_KEY_STORE_NAME = "default_keystore"
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {

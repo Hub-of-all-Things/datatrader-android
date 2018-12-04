@@ -11,7 +11,7 @@
 
     <ImageView
             android:layout_width="match_parent"
-            android:layout_height="150dp" app:srcCompat="@drawable/ic_launcher_background"
+            android:layout_height="150dp"
             android:id="@+id/browseImagePreview" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:tint="@color/browse_image_filter"

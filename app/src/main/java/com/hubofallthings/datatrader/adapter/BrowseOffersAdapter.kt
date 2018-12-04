@@ -18,11 +18,14 @@ import com.bumptech.glide.request.RequestOptions
 import com.hubofallthings.android.hatApi.objects.dataoffers.DataOfferObject
 import com.hubofallthings.datatrader.R
 import com.hubofallthings.datatrader.helper.HATDateHelper
+import com.hubofallthings.datatrader.utils.Util
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation
-import java.io.IOException
-import java.text.DecimalFormat
 import java.text.SimpleDateFormat
 import java.util.*
+import android.R.attr.thumbnail
+import android.graphics.drawable.Drawable
+import com.bumptech.glide.RequestBuilder
+
 
 class BrowseOffersAdapter// data is passed into the constructor
 internal constructor(val activity: Activity, private val offers: List<DataOfferObject>):
@@ -33,8 +36,16 @@ internal constructor(val activity: Activity, private val offers: List<DataOfferO
 
     private val transformationCornerHeader = MultiTransformation(
         CenterCrop(),
-        RoundedCornersTransformation(20, 0, RoundedCornersTransformation.CornerType.TOP)
+        RoundedCornersTransformation(Util().convertDpToPixel(5f), 0, RoundedCornersTransformation.CornerType.TOP)
     )
+    val requestOptions = RequestOptions()
+        .centerCrop()
+        .transforms(transformationCornerHeader)
+
+    val thumbnail = Glide.with(activity)
+        .load(R.drawable.placeholder_browse_offers)
+        .apply(requestOptions)
+
 
     // inflates the row layout from xml when needed
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -50,9 +61,11 @@ internal constructor(val activity: Activity, private val offers: List<DataOfferO
         holder.browseTitle?.text = offer.title
         holder.expiredBrowseDate?.text = HATDateHelper().tryParseDateOutput(offer.offerExpires,"'Expires 'd MMM yyyy")
 
-
-        Glide.with(activity).load(offer.imageUrl)
-            .apply(RequestOptions.bitmapTransform(transformationCornerHeader).placeholder(R.drawable.browse_image_placeholder))
+        Glide
+            .with(activity)
+            .load(offer.imageUrl)
+            .apply(requestOptions)
+            .thumbnail(thumbnail)
             .into(holder.browseImagePreview)
     }
 
