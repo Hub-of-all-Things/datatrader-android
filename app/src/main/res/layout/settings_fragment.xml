@@ -154,10 +154,10 @@
             android:layout_marginBottom="20dp"
             android:stateListAnimator="@null"
             android:layout_marginTop="20dp"
-            android:background="@drawable/button_enabled_rounded"
-            android:fontFamily="@font/roboto_medium"
+            android:fontFamily="@font/open_sans_condensed_bold"
+            android:background="@drawable/login_button_rounded"
             android:gravity="center"
             android:text="@string/log_out"
             android:textAllCaps="false"
-            android:textColor="#FFFFFF"/>
+            android:textColor="@color/darkBlueBackground"/>
 </LinearLayout>

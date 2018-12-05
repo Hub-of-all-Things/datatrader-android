@@ -152,15 +152,8 @@
                 android:textAlignment="textStart"
                 android:layout_marginStart="15dp"
                 android:layout_marginEnd="15dp"
-                android:fontFamily="@font/open_sans_condensed_bold" android:textColor="@color/darkBlueBackground"/>
-        <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/offerDetailsCriteriaSubtitle"
-                android:textAlignment="textStart"
-                android:layout_marginStart="15dp"
-                android:layout_marginEnd="15dp"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/open_sans_condensed_light" android:textColor="@color/greyLight"/>
+                android:fontFamily="@font/open_sans_condensed_light" android:textColor="@color/greyLight"
+        />
         <TextView
                 android:text="Actions required"
                 android:layout_marginTop="39dp"

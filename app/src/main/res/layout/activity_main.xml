@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/background_splash"
-        tools:context=".ui.main.MainFragment">
+        tools:context=".activity.MainActivity">
 
     <ImageView
             android:src="@drawable/data_trader_logo_text"

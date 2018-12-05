@@ -7,6 +7,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.hubofallthings.android.hatApi.objects.dataoffers.DataOfferObject
 import com.hubofallthings.datatrader.R
 import com.hubofallthings.datatrader.helper.HATDateHelper
+import com.hubofallthings.datatrader.manager.DataOfferCriteriaManager
 import kotlinx.android.synthetic.main.offer_details_activity.*
 
 class OfferDetailsActivity : AppCompatActivity(){
@@ -32,5 +33,8 @@ class OfferDetailsActivity : AppCompatActivity(){
 
         offerDetailsDescriptionTitle.text = offerObject?.shortDescription
         offerDetailsDescriptionSubtitle.text = offerObject?.longDescription
+        if(offerObject?.dataConditions?.bundle!=null)
+            offerDetailsCriteriaTitle.text = DataOfferCriteriaManager().getBundleTxt(offerObject?.dataConditions?.bundle!!)
+
     }
 }
