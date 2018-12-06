@@ -24,9 +24,10 @@ class BrowseOffersServices(private val activity : Activity){
         val token = mUserHelper.getToken()
         val userDomain = mUserHelper.getUserDomain()
         val application = "databuyerstaging"
+        val merchants = listOf("merchants" to "datatrader")
 
         if(!token.isNullOrEmpty()){
-            HATDataOffersService().getAvailableDataOffers(userDomain,token,application,null,{list,newToken->successfulCallBack(list,newToken)},{error->failCallBack(error)})
+            HATDataOffersService().getAvailableDataOffers(userDomain,token,application,merchants,{list,newToken->successfulCallBack(list,newToken)},{error->failCallBack(error)})
         }
 
     }
