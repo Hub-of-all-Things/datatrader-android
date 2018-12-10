@@ -8,7 +8,6 @@ import com.hubofallthings.android.hatApi.objects.dataoffers.DataOfferRequiredDat
 class DataOfferCriteriaManager{
     fun getBundleTxt(bundleDd : List<Map<String, DataOfferRequiredDataDefinitionBundleKeyV2>>) : Spanned{
         var stringToReturn = ""
-
         for (i in bundleDd.indices){
             bundleDd[i].forEach { (_, value) ->
                 if(value.endpoints!=null) {

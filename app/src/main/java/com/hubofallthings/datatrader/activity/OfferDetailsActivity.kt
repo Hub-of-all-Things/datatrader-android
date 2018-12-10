@@ -33,8 +33,13 @@ class OfferDetailsActivity : AppCompatActivity(){
 
         offerDetailsDescriptionTitle.text = offerObject?.shortDescription
         offerDetailsDescriptionSubtitle.text = offerObject?.longDescription
-        if(offerObject?.dataConditions?.bundle!=null)
+        if(offerObject?.dataConditions?.bundle!=null){
             offerDetailsCriteriaTitle.text = DataOfferCriteriaManager().getBundleTxt(offerObject?.dataConditions?.bundle!!)
-
+        }else {
+            if (offerObject?.requiredDataDefinition?.bundle != null) {
+                offerDetailsCriteriaTitle.text =
+                        DataOfferCriteriaManager().getBundleTxt(offerObject?.requiredDataDefinition?.bundle!!)
+            }
+        }
     }
 }
