@@ -47,4 +47,13 @@
     <string name="see_my_data_transaction_history">See my data transaction history</string>
     <string name="reset_password">Reset password</string>
     <string name="log_out">LOG OUT</string>
+    <string name="problem_claiming_offer">0/3 Problem claiming offer. Please tap here</string>
+    <string name="fetching_2_3">2/3 Fetching</string>
+    <string name="offer_completed">3/3 Offer completed</string>
+    <string name="offer_accepted"><![CDATA[&#8531; Offer accepted]]></string>
+    <string name="checking_status">Checking status…</string>
+    <string name="view_my_offers">VIEW MY OFFERS</string>
+    <string name="back_to_browse">Back to browse</string>
+    <string name="confirmation_image">Confirmation image</string>
+
 </resources>

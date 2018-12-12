@@ -20,6 +20,9 @@ class OfferDetailsActivity : AppCompatActivity(){
         if(intent.extras != null) {
             offerObject = intent.extras?.getSerializable("offer") as? DataOfferObject
         }
+        initialize()
+    }
+    private fun initialize(){
         offerDetailsTitle.text = offerObject?.title
         expiredDateOfferDetails.text = HATDateHelper().tryParseDateOutput(offerObject?.offerExpires,"'Expires 'd MMM yyyy")
 
