@@ -5,9 +5,11 @@ import android.support.v7.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.hubofallthings.android.hatApi.objects.dataoffers.DataOfferObject
+import com.hubofallthings.android.hatApi.services.HATDataOffersService
 import com.hubofallthings.datatrader.R
 import com.hubofallthings.datatrader.helper.HATDateHelper
 import com.hubofallthings.datatrader.manager.DataOfferCriteriaManager
+import com.hubofallthings.datatrader.service.OfferDetailsServices
 import kotlinx.android.synthetic.main.offer_details_activity.*
 
 class OfferDetailsActivity : AppCompatActivity(){
@@ -21,6 +23,7 @@ class OfferDetailsActivity : AppCompatActivity(){
             offerObject = intent.extras?.getSerializable("offer") as? DataOfferObject
         }
         initialize()
+        acceptOfferBtn.setOnClickListener { acceptOffer() }
     }
     private fun initialize(){
         offerDetailsTitle.text = offerObject?.title
@@ -44,5 +47,11 @@ class OfferDetailsActivity : AppCompatActivity(){
                         DataOfferCriteriaManager().getBundleTxt(offerObject?.requiredDataDefinition?.bundle!!)
             }
         }
+    }
+
+    private fun acceptOffer(){
+        val offerId= offerObject?.dataOfferID
+        if(offerId!=null)
+        OfferDetailsServices(this).acceptOffer(offerId)
     }
 }

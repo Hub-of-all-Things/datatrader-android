@@ -33,7 +33,7 @@ class DrawerFragment : Fragment() , View.OnClickListener {
     private var containerView: View? = null
     private var recyclerView: RecyclerView? = null
     private var currentActivity : Int = 9
-    private val names = arrayOf("My Profile","Browse offers", "My offers" ,"Settings")
+    private val names = arrayOf("Browse offers", "My offers" ,"Settings")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -77,7 +77,7 @@ class DrawerFragment : Fragment() , View.OnClickListener {
 
             }
         }))
-        openFragment(1)
+        openFragment(0)
         return views
     }
 
@@ -101,9 +101,6 @@ class DrawerFragment : Fragment() , View.OnClickListener {
 
         when (position) {
             0 -> {
-
-            }
-            1 -> {
                 if(currentActivity != position) {
                     currentActivity = position
                     removeAllFragment(BrowseOffersFragment())
@@ -113,10 +110,10 @@ class DrawerFragment : Fragment() , View.OnClickListener {
                     }
                 }
             }
-            2 -> {
+            1 -> {
 
             }
-            3 -> {
+            2 -> {
                 //settings
                 if(currentActivity != position) {
                     currentActivity = position
@@ -124,12 +121,6 @@ class DrawerFragment : Fragment() , View.OnClickListener {
                     toolbarTitle!!.text = getString(R.string.hat_settings)
                     toolbarDrawer?.setBackgroundColor(ContextCompat.getColor(context!!, R.color.toolbar_color))
                 }
-
-            }
-            4 -> {
-
-            }
-            5 -> {
 
             }
             else -> {

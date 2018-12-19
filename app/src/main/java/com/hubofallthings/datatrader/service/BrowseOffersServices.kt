@@ -1,17 +1,20 @@
 package com.hubofallthings.datatrader.service
 
 import android.app.Activity
+import android.content.Intent
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import com.hubofallthings.android.hatApi.HATError
 import com.hubofallthings.android.hatApi.objects.dataoffers.DataOfferObject
 import com.hubofallthings.android.hatApi.services.HATDataOffersService
 import com.hubofallthings.datatrader.R
+import com.hubofallthings.datatrader.activity.MainActivity
 import com.hubofallthings.datatrader.adapter.BrowseOffersAdapter
 import com.hubofallthings.datatrader.helper.UserHelper
 
 class BrowseOffersServices(private val activity : Activity){
     val mUserHelper = UserHelper(activity)
+    private val mPreference = DataTraderPreference(activity)
     private lateinit var recyclerView: RecyclerView
     private lateinit var viewAdapter: RecyclerView.Adapter<*>
     private lateinit var viewManager: RecyclerView.LayoutManager
@@ -53,7 +56,14 @@ class BrowseOffersServices(private val activity : Activity){
         }
     }
     private fun failCallBack(error : HATError){
-        error.errorCode
-        error.errorMessage
+        if(error.errorCode == 401){
+            logout()
+        }
+    }
+    private fun logout(){
+        mPreference.setLoginStatus(false)
+        val intent = Intent(activity, MainActivity::class.java)
+        activity.startActivity(intent)
+        activity.finishAffinity()
     }
 }

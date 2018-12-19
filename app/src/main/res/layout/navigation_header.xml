@@ -26,12 +26,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView" android:textColor="#ffffff"
-                android:fontFamily="@font/open_sans_condensed_bold" android:textSize="20sp"/>
+                android:fontFamily="@font/oswald_bold" android:textSize="20sp"/>
         <TextView
                 android:text="Service of HATLAB"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/open_sans_condensed_light" android:textColor="@color/greyLight"
+                android:fontFamily="@font/oswald_light" android:textColor="@color/greyLight"
         />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

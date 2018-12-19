@@ -3,6 +3,8 @@
     <array name="preloaded_fonts" translatable="false">
         <item>@font/open_sans_condensed_bold</item>
         <item>@font/open_sans_condensed_light</item>
+        <item>@font/oswald_bold</item>
+        <item>@font/oswald_light</item>
         <item>@font/roboto</item>
     </array>
 </resources>

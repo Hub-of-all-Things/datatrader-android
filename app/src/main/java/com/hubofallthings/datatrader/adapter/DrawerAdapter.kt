@@ -28,10 +28,12 @@ class DrawerAdapter(private val context: Context, arrayList: ArrayList<DrawerMod
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.title.setText(arrayList[position].getNames())
-        if(position==0){
-            holder.iconMenu.setImageResource(R.drawable.data_trader_logo_sign)
-            holder.iconMenu.visibility = View.VISIBLE
-        }
+
+        //profile image
+//        if(position==0){
+//            holder.iconMenu.setImageResource(R.drawable.data_trader_logo_sign)
+//            holder.iconMenu.visibility = View.VISIBLE
+//        }
     }
 
     override fun getItemCount(): Int {

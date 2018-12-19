@@ -17,7 +17,7 @@
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
-                android:fontFamily="@font/open_sans_condensed_bold"
+                android:fontFamily="@font/oswald_bold"
                 android:paddingBottom="5dp"
                 android:paddingStart="15dp"
                 android:paddingTop="6dp"
@@ -38,7 +38,7 @@
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
-                android:fontFamily="@font/open_sans_condensed_bold"
+                android:fontFamily="@font/oswald_bold"
                 android:paddingBottom="5dp"
                 android:paddingStart="15dp"
                 android:paddingTop="6dp"
