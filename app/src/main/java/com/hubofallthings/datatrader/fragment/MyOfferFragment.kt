@@ -21,6 +21,7 @@ import com.hubofallthings.datatrader.manager.DataOfferStatusManager
 class MyOfferFragment : Fragment() , View.OnClickListener {
     private var tabLayout : TabLayout? = null
     private lateinit var mUserHelper : UserHelper
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }

@@ -58,5 +58,7 @@
     <string name="confirmation_image">Confirmation image</string>
     <string name="accepted">%1$s\nAccepted</string>
     <string name="completed">%1$s\nCompleted</string>
+    <string name="service_of_hatlab">Service of HATLAB</string>
+    <string name="datatrader">DataTrader</string>
 
 </resources>
