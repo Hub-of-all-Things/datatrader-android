@@ -13,14 +13,14 @@ import com.hubofallthings.datatrader.adapter.BrowseOffersAdapter
 import com.hubofallthings.datatrader.helper.UserHelper
 import com.hubofallthings.datatrader.manager.DataOfferStatusManager
 
-class BrowseOffersServices(private val activity : Activity){
+class MyOffersAcceptedServices(private val activity : Activity){
     val mUserHelper = UserHelper(activity)
     private val mPreference = DataTraderPreference(activity)
     private lateinit var recyclerView: RecyclerView
     private lateinit var viewAdapter: RecyclerView.Adapter<*>
     private lateinit var viewManager: RecyclerView.LayoutManager
 
-    fun getOffers(){
+    fun getOffersAccepted(){
         getAvailableOffers()
     }
 
@@ -28,20 +28,28 @@ class BrowseOffersServices(private val activity : Activity){
         val token = mUserHelper.getToken()
         val userDomain = mUserHelper.getUserDomain()
         val application = "databuyerstaging"
-        val merchants = listOf("merchant" to "datatrader")
+        val merchants = listOf("merchants" to "datatrader")//todo merchant
 
         if(!token.isNullOrEmpty()){
-            HATDataOffersService().getAvailableDataOffersWithClaims(userDomain,token,application,merchants,{list,newToken->successfulCallBack(list,newToken)},{error->failCallBack(error)})
+            HATDataOffersService().getAvailableDataOffersWithClaims(userDomain,token,application,merchants,{ list, newToken->successfulCallBack(list,newToken)},{ error->failCallBack(error)})
         }
 
     }
 
-    private fun successfulCallBack(list: List<DataOfferObject>?,newToken : String?) {
+    private fun successfulCallBack(list: List<DataOfferObject>?, newToken : String?) {
         list?.let {
             viewManager = LinearLayoutManager(activity)
+            val acceptedOffers = ArrayList<DataOfferObject>()
 
-            viewAdapter = BrowseOffersAdapter(activity, it)
-            recyclerView = activity.findViewById<RecyclerView>(R.id.browseOffersRecyclerView).apply {
+            for(i in list.indices){
+                val state = DataOfferStatusManager.getState(list[i])
+                if(state == DataOfferStatusManager.Accepted){
+                    acceptedOffers.add(list[i])
+                }
+            }
+
+            viewAdapter = BrowseOffersAdapter(activity, acceptedOffers)
+            recyclerView = activity.findViewById<RecyclerView>(R.id.myOffersAcceptedRecyclerView).apply {
                 // use this setting to improve performance if you know that changes
                 // in content do not change the layout size of the RecyclerView
                 setHasFixedSize(true)

@@ -37,6 +37,7 @@
     <string name="datatrader_settings">DataTrader settings</string>
     <string name="hat_settings">SETTINGS</string>
     <string name="browse_offers">BROWSE OFFERS</string>
+    <string name="my_offers">MY OFFERS</string>
 
     <string name="tech_support">Tech support</string>
     <string name="terms_of_service">Terms of service</string>
@@ -55,5 +56,7 @@
     <string name="view_my_offers">VIEW MY OFFERS</string>
     <string name="back_to_browse">Back to browse</string>
     <string name="confirmation_image">Confirmation image</string>
+    <string name="accepted">Accepted</string>
+    <string name="completed">Completed</string>
 
 </resources>

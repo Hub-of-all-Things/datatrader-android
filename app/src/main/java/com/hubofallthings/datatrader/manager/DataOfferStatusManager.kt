@@ -11,14 +11,16 @@ import com.hubofallthings.datatrader.activity.OfferDetailsActivity
 
 enum class DataOfferStatusManager{
     Accepted,Completed,Available;
-
-    fun getState(dataOffer: DataOfferObject) : DataOfferStatusManager{
-        return when(dataOffer.claim?.claimStatus){
-            "completed"-> Completed
-            "claimed"-> Accepted
-            else-> Available
+    companion object {
+        fun getState(dataOffer: DataOfferObject) : DataOfferStatusManager{
+            return when(dataOffer.claim?.claimStatus){
+                "completed"-> Completed
+                "claimed"-> Accepted
+                else-> Available
+            }
         }
     }
+
     fun setupProgressBar(offer : DataOfferObject, dataDebitValue : HATDataDebitValuesObject?, progressBar : ProgressBar , progressText : TextView,  context : Context) {
         val state = getState(offer)
         when (state) {
@@ -44,6 +46,23 @@ enum class DataOfferStatusManager{
                     progressBar.progress = 0
                     progressText.text = context.getString(R.string.problem_claiming_offer)
                 }
+            }
+            Completed -> {
+                progressBar.progress = 3
+                progressText.text = context.getString(R.string.offer_completed)
+            }
+            Available -> {
+                progressBar.progress = 1
+                progressText.text = context.getString(R.string.offer_accepted)
+            }
+        }
+    }
+    fun setupProgressBarOld(offer : DataOfferObject, progressBar : ProgressBar , progressText : TextView,  context : Context) {
+        val state = getState(offer)
+        when (state) {
+            Accepted -> {
+                progressBar.progress = 2
+                progressText.text = context.getString(R.string.fetching_2_3)
             }
             Completed -> {
                 progressBar.progress = 3

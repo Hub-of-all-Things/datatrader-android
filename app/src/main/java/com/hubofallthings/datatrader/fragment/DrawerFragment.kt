@@ -111,7 +111,14 @@ class DrawerFragment : Fragment() , View.OnClickListener {
                 }
             }
             1 -> {
-
+                if(currentActivity != position) {
+                    currentActivity = position
+                    removeAllFragment(MyOfferFragment())
+                    if (toolbarTitle != null) {
+                        toolbarTitle.text = getString(R.string.my_offers)
+                        toolbarDrawer?.setBackgroundColor(ContextCompat.getColor(context!!, R.color.toolbar_color))
+                    }
+                }
             }
             2 -> {
                 //settings

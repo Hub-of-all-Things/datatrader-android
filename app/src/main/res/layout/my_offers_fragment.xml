@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="50dp"
+                  android:orientation="vertical"
+                  android:id="@+id/offer_layout_tabs"
+                  android:background="@color/toolbar_color"
+                  app:layout_constraintTop_toTopOf="parent"
+                  app:layout_constraintStart_toStartOf="parent"
+                  app:layout_constraintEnd_toEndOf="parent">
+        <android.support.design.widget.TabLayout
+                android:id="@+id/myOfferTabs"
+                android:layout_width="260dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="5dp"
+                app:tabTextColor="#9e9e9e"
+                app:tabIndicatorColor="@color/loginBtnColor"
+                app:tabSelectedTextColor="#ffffff"
+                app:tabMode="fixed"/>
+    </LinearLayout>
+
+    <android.support.v4.view.ViewPager
+            android:id="@+id/viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white" app:layout_constraintTop_toBottomOf="@+id/offer_layout_tabs"/>
+
+</android.support.constraint.ConstraintLayout>

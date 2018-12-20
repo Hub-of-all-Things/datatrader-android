@@ -1,0 +1,34 @@
+package com.hubofallthings.datatrader.adapter
+
+import android.content.Context
+import android.support.v4.app.Fragment
+import android.support.v4.app.FragmentManager
+import android.support.v4.app.FragmentStatePagerAdapter
+import com.hubofallthings.datatrader.R
+import com.hubofallthings.datatrader.fragment.BrowseOffersFragment
+import com.hubofallthings.datatrader.fragment.OffersAcceptedFragment
+import com.hubofallthings.datatrader.fragment.OffersCompletedFragment
+import com.hubofallthings.datatrader.fragment.SettingsFragment
+
+
+class MyOfferPagerAdapter(fm: FragmentManager, private var mNumOfTabs: Int,private val mContext : Context?) : FragmentStatePagerAdapter(fm) {
+    override fun getItem(position: Int): Fragment? {
+        return when (position) {
+            0 -> OffersAcceptedFragment()
+            1 -> OffersCompletedFragment()
+            else-> null
+        }
+    }
+
+    override fun getCount(): Int {
+        return mNumOfTabs
+    }
+
+    override fun getPageTitle(position: Int): CharSequence? {
+        return when (position) {
+            0 -> mContext?.getString(R.string.accepted)
+            1 -> mContext?.getString(R.string.completed)
+            else -> null
+        }
+    }
+}
