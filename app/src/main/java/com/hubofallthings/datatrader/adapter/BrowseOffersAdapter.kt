@@ -25,8 +25,10 @@ import java.util.*
 import android.R.attr.thumbnail
 import android.graphics.drawable.Drawable
 import android.support.constraint.ConstraintLayout
+import android.widget.ProgressBar
 import com.bumptech.glide.RequestBuilder
 import com.hubofallthings.datatrader.activity.OfferDetailsActivity
+import com.hubofallthings.datatrader.manager.DataOfferStatusManager
 import java.io.Serializable
 
 
@@ -70,6 +72,7 @@ internal constructor(val activity: Activity, private val offers: List<DataOfferO
             .thumbnail(thumbnail)
             .into(holder.browseImagePreview)
 
+        footerView(holder,offer)
         holder.browseOfferLayout.setOnClickListener {
             val intent = Intent(activity, OfferDetailsActivity::class.java)
             intent.putExtra("offer",offer as Serializable)
@@ -85,7 +88,21 @@ internal constructor(val activity: Activity, private val offers: List<DataOfferO
     override fun getItemViewType(position: Int): Int {
         return super.getItemViewType(position)
     }
+    private fun footerView(holder: ViewHolder , offer : DataOfferObject){
+        val state = DataOfferStatusManager.getState(offer)
+        when(state){
 
+            DataOfferStatusManager.Accepted -> {
+                DataOfferStatusManager.setupProgressBarOld(offer,holder.offerProgressBar,holder.offerProgressTextView,activity)
+                holder.myOfferBottomLayout.visibility = View.VISIBLE
+            }
+            DataOfferStatusManager.Completed -> {
+                holder.myOfferBottomLayout.visibility = View.VISIBLE
+                DataOfferStatusManager.setupProgressBarOld(offer,holder.offerProgressBar,holder.offerProgressTextView,activity)
+            }
+            DataOfferStatusManager.Available -> {holder.browseOfferBottomLayout.visibility = View.VISIBLE}
+        }
+    }
     // stores and recycles views as they are scrolled off screen
     inner class ViewHolder internal constructor(itemView: View) : RecyclerView.ViewHolder(itemView),
         View.OnClickListener {
@@ -94,6 +111,11 @@ internal constructor(val activity: Activity, private val offers: List<DataOfferO
         internal val browseSubtitle = itemView.findViewById(R.id.browseSubtitle) as? TextView
         internal val browseImagePreview = itemView.findViewById(R.id.browseImagePreview) as ImageView
         internal val browseOfferLayout = itemView.findViewById(R.id.browseOfferLayout) as ConstraintLayout
+        internal val browseOfferBottomLayout = itemView.findViewById(R.id.bottomLayoutAvailable) as ConstraintLayout
+        internal val myOfferBottomLayout = itemView.findViewById(R.id.bottomLayoutOfferWithProgress) as ConstraintLayout
+        internal val offerProgressBar = itemView.findViewById(R.id.offerProgressBar) as ProgressBar
+        internal val offerProgressTextView = itemView.findViewById(R.id.offerProgressTextView) as TextView
+
 
         init {
             itemView.setOnClickListener(this)

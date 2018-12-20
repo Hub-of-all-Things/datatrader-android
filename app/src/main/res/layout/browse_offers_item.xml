@@ -6,7 +6,8 @@
                                              android:layout_marginStart="10dp"
                                              android:elevation="3dp"
                                              android:layout_marginEnd="10dp"
-                                             android:layout_marginTop="20dp"
+                                             android:layout_marginTop="10dp"
+                                             android:layout_marginBottom="20dp"
                                              android:background="@drawable/background_layout_without_border"
                                              android:layout_height="300dp">
 
@@ -46,7 +47,8 @@
                                                  android:gravity="center"
                                                  android:layout_marginEnd="8dp" android:layout_marginBottom="20dp"
                                                  app:layout_constraintBottom_toBottomOf="parent"
-                                                 android:id="@+id/bottomLayoutBrowse" android:layout_marginTop="20dp">
+                                                 android:id="@+id/bottomLayoutAvailable"
+                                                 android:layout_marginTop="20dp" android:visibility="gone">
         <ImageView
                 android:layout_width="14dp"
                 android:layout_height="14dp" app:srcCompat="@drawable/calendar_icon_browse"
@@ -64,6 +66,8 @@
                 android:textColor="@color/expired_date_color"
                 app:layout_constraintStart_toEndOf="@+id/calendarIcon"
                 android:layout_marginStart="8dp"
+                android:gravity="center"
+
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
         <ImageView
@@ -77,10 +81,50 @@
                 android:text="Reward"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:id="@+id/rewardTxt"
                 android:fontFamily="@font/oswald_bold"
                 android:textColor="@color/darkBlueBackground"
                 android:layout_marginEnd="8dp" app:layout_constraintEnd_toStartOf="@+id/rewardArrow"
                 app:layout_constraintTop_toTopOf="parent"/>
+    </android.support.constraint.ConstraintLayout>
+    <android.support.constraint.ConstraintLayout android:layout_width="394dp"
+                                                 android:orientation="horizontal"
+                                                 android:layout_height="40dp"
+                                                 app:layout_constraintTop_toBottomOf="@+id/browseSubtitle"
+                                                 app:layout_constraintStart_toStartOf="parent"
+                                                 android:layout_marginStart="8dp"
+                                                 app:layout_constraintEnd_toEndOf="parent"
+                                                 android:gravity="center"
+                                                 android:layout_marginEnd="8dp" android:layout_marginBottom="20dp"
+                                                 app:layout_constraintBottom_toBottomOf="parent"
+                                                 android:id="@+id/bottomLayoutOfferWithProgress"
+                                                 android:layout_marginTop="20dp" android:visibility="gone">
+        <TextView
+                android:text="progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/offerProgressTextView"
+                android:fontFamily="@font/oswald_light"
+                android:textColor="@color/expired_date_color"
+                android:gravity="center"
+                app:layout_constraintBottom_toBottomOf="parent" android:layout_marginStart="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/offerProgressBar" app:layout_constraintVertical_bias="0.0"/>
+        <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp" app:srcCompat="@drawable/onboarding_forward_arrow"
+                android:id="@+id/offerNextArrowBtn"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="17dp"
+                app:layout_constraintTop_toTopOf="parent"/>
+        <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="240dp"
+                android:layout_height="7dp"
+                android:id="@+id/offerProgressBar" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="16dp"
+                android:progressDrawable="@drawable/progress_layout"
+                app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="4dp"/>
     </android.support.constraint.ConstraintLayout>
 </android.support.constraint.ConstraintLayout>

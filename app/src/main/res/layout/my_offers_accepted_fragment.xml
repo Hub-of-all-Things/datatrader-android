@@ -8,6 +8,8 @@
             android:layout_height="match_parent"
             android:id="@+id/myOffersAcceptedRecyclerView"
             app:layout_constraintTop_toTopOf="parent"
+            android:paddingBottom="60dp"
+            android:clipToPadding="false"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 </android.support.constraint.ConstraintLayout>

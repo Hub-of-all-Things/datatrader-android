@@ -19,6 +19,23 @@ enum class DataOfferStatusManager{
                 else-> Available
             }
         }
+        fun setupProgressBarOld(offer : DataOfferObject, progressBar : ProgressBar , progressText : TextView,  context : Context) {
+            val state = getState(offer)
+            when (state) {
+                Accepted -> {
+                    progressBar.progress = 67
+                    progressText.text = context.getString(R.string.fetching_2_3)
+                }
+                Completed -> {
+                    progressBar.progress = 100
+                    progressText.text = context.getString(R.string.offer_completed)
+                }
+                Available -> {
+                    progressBar.progress = 33
+                    progressText.text = context.getString(R.string.offer_accepted)
+                }
+            }
+        }
     }
 
     fun setupProgressBar(offer : DataOfferObject, dataDebitValue : HATDataDebitValuesObject?, progressBar : ProgressBar , progressText : TextView,  context : Context) {
@@ -57,21 +74,5 @@ enum class DataOfferStatusManager{
             }
         }
     }
-    fun setupProgressBarOld(offer : DataOfferObject, progressBar : ProgressBar , progressText : TextView,  context : Context) {
-        val state = getState(offer)
-        when (state) {
-            Accepted -> {
-                progressBar.progress = 2
-                progressText.text = context.getString(R.string.fetching_2_3)
-            }
-            Completed -> {
-                progressBar.progress = 3
-                progressText.text = context.getString(R.string.offer_completed)
-            }
-            Available -> {
-                progressBar.progress = 1
-                progressText.text = context.getString(R.string.offer_accepted)
-            }
-        }
-    }
+
 }
