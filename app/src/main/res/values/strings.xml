@@ -60,5 +60,9 @@
     <string name="completed">%1$s\nCompleted</string>
     <string name="service_of_hatlab">Service of HATLAB</string>
     <string name="datatrader">DataTrader</string>
+    <string name="accept">Accept</string>
+
+    <string name="actions_required_string">1. Accept offer\n\n2. Await offer fulfilment\n\n3. Enjoy your benefits</string>
+
 
 </resources>

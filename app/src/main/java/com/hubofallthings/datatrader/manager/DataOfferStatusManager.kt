@@ -36,6 +36,20 @@ enum class DataOfferStatusManager{
                 }
             }
         }
+        fun setupReward(offer : DataOfferObject): String {
+            val state = getState(offer)
+            if (state == Completed) {
+                when (offer.reward.rewardType) {
+                    "voucher" -> {
+                        return "\nClick here : ${offer.reward.codes?.first()}"
+                    }
+                    "service" -> {
+                        return "\nClick here : ${offer.reward.vendorUrl}"
+                    }
+                }
+            }
+            return ""
+        }
     }
 
     fun setupProgressBar(offer : DataOfferObject, dataDebitValue : HATDataDebitValuesObject?, progressBar : ProgressBar , progressText : TextView,  context : Context) {
