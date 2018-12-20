@@ -56,7 +56,7 @@
     <string name="view_my_offers">VIEW MY OFFERS</string>
     <string name="back_to_browse">Back to browse</string>
     <string name="confirmation_image">Confirmation image</string>
-    <string name="accepted">Accepted</string>
-    <string name="completed">Completed</string>
+    <string name="accepted">%1$s\nAccepted</string>
+    <string name="completed">%1$s\nCompleted</string>
 
 </resources>

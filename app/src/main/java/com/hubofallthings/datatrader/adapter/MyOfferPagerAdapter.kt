@@ -11,7 +11,7 @@ import com.hubofallthings.datatrader.fragment.OffersCompletedFragment
 import com.hubofallthings.datatrader.fragment.SettingsFragment
 
 
-class MyOfferPagerAdapter(fm: FragmentManager, private var mNumOfTabs: Int,private val mContext : Context?) : FragmentStatePagerAdapter(fm) {
+class MyOfferPagerAdapter(fm: FragmentManager, private var mNumOfTabs: Int,private val mContext : Context?,private val numOfAccepted : Int,private val numOfCompleted : Int) : FragmentStatePagerAdapter(fm) {
     override fun getItem(position: Int): Fragment? {
         return when (position) {
             0 -> OffersAcceptedFragment()
@@ -26,8 +26,8 @@ class MyOfferPagerAdapter(fm: FragmentManager, private var mNumOfTabs: Int,priva
 
     override fun getPageTitle(position: Int): CharSequence? {
         return when (position) {
-            0 -> mContext?.getString(R.string.accepted)
-            1 -> mContext?.getString(R.string.completed)
+            0 -> mContext?.getString(R.string.accepted,numOfAccepted.toString())
+            1 -> mContext?.getString(R.string.completed,numOfCompleted.toString())
             else -> null
         }
     }
