@@ -44,14 +44,13 @@
                                                  app:layout_constraintStart_toStartOf="parent"
                                                  android:layout_marginStart="8dp"
                                                  app:layout_constraintEnd_toEndOf="parent"
-                                                 android:gravity="center"
                                                  android:layout_marginEnd="8dp" android:layout_marginBottom="20dp"
                                                  app:layout_constraintBottom_toBottomOf="parent"
                                                  android:id="@+id/bottomLayoutAvailable"
                                                  android:layout_marginTop="20dp" android:visibility="gone">
         <ImageView
-                android:layout_width="14dp"
-                android:layout_height="14dp" app:srcCompat="@drawable/calendar_icon_browse"
+                android:layout_width="20dp"
+                android:layout_height="20dp" app:srcCompat="@drawable/calendar_icon_browse"
                 android:id="@+id/calendarIcon"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="17dp"
@@ -69,10 +68,11 @@
                 android:gravity="center"
 
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"/>
+                app:layout_constraintBottom_toBottomOf="parent"
+        />
         <ImageView
-                android:layout_width="18dp"
-                android:layout_height="18dp" app:srcCompat="@drawable/onboarding_forward_arrow"
+                android:layout_width="20dp"
+                android:layout_height="20dp" app:srcCompat="@drawable/onboarding_forward_arrow"
                 android:id="@+id/rewardArrow"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginEnd="17dp"
@@ -81,12 +81,13 @@
                 android:text="Reward"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:id="@+id/rewardTxt"
+                android:gravity="center_vertical"
                 android:fontFamily="@font/oswald_bold"
                 android:textColor="@color/darkBlueBackground"
                 android:layout_marginEnd="8dp" app:layout_constraintEnd_toStartOf="@+id/rewardArrow"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"/>
     </android.support.constraint.ConstraintLayout>
     <android.support.constraint.ConstraintLayout android:layout_width="394dp"
                                                  android:orientation="horizontal"
@@ -112,8 +113,8 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/offerProgressBar" app:layout_constraintVertical_bias="0.0"/>
         <ImageView
-                android:layout_width="18dp"
-                android:layout_height="18dp" app:srcCompat="@drawable/onboarding_forward_arrow"
+                android:layout_width="20dp"
+                android:layout_height="20dp" app:srcCompat="@drawable/onboarding_forward_arrow"
                 android:id="@+id/offerNextArrowBtn"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginEnd="17dp"

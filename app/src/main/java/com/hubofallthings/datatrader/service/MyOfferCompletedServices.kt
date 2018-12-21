@@ -10,6 +10,7 @@ import com.hubofallthings.android.hatApi.services.HATDataOffersService
 import com.hubofallthings.datatrader.R
 import com.hubofallthings.datatrader.activity.MainActivity
 import com.hubofallthings.datatrader.adapter.BrowseOffersAdapter
+import com.hubofallthings.datatrader.adapter.CompletedOffersAdapter
 import com.hubofallthings.datatrader.helper.UserHelper
 import com.hubofallthings.datatrader.manager.DataOfferStatusManager
 
@@ -40,15 +41,24 @@ class MyOfferCompletedServices(private val activity : Activity){
         list?.let {
             viewManager = LinearLayoutManager(activity)
             val acceptedOffers = ArrayList<DataOfferObject>()
+            var cash : Int = 0
+            var voucher : Int = 0
+            var service : Int = 0
 
             for(i in list.indices){
                 val state = DataOfferStatusManager.getState(list[i])
                 if(state == DataOfferStatusManager.Completed){
                     acceptedOffers.add(list[i])
+                    when(list[i].reward.rewardType){
+                        "voucher"->{voucher++}
+                        "cash"->{cash += list[i].reward.rewardValue.toInt() }
+                        "service"->{service++}
+                    }
                 }
             }
+            val completedHeader = Triple(voucher,cash,service)
 
-            viewAdapter = BrowseOffersAdapter(activity, acceptedOffers)
+            viewAdapter = CompletedOffersAdapter(activity, acceptedOffers,completedHeader)
             recyclerView = activity.findViewById<RecyclerView>(R.id.myOffersCompletedRecyclerView).apply {
                 // use this setting to improve performance if you know that changes
                 // in content do not change the layout size of the RecyclerView
