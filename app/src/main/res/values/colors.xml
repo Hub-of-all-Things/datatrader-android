@@ -12,6 +12,8 @@
     <color name="dot_light_screen">#efc42e</color>
     <color name="dot_dark_screen">#7aefc42e</color>
 
+    <color name="toolbar_color">#4a556b</color>
+
     <color name="expired_date_color">#474747</color>
 
     <color name="browse_image_filter">#4c4b556a</color>

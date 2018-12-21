@@ -80,7 +80,7 @@
                         android:elevation="5dp"
 
                         android:fontFamily="@font/oswald_bold"
-                        android:text="@string/your_hat_name"
+                        android:text=""
                         android:textAlignment="center"
                         android:textColor="#4a556c"
                         android:textSize="19sp"

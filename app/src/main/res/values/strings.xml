@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">DataTraderTest</string>
     <string name="service_of_hat_lab">Service of hat lab</string>
     <string name="data_trader">Data trader</string>
     <string name="data_trader_logo">Data trader logo</string>

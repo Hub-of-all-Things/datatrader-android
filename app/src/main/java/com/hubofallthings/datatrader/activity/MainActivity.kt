@@ -56,9 +56,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun loginBtnClick(){
-        startActivityForResult(Intent(this,LoginActivity::class.java),MainActivityServices.LOGIN)
+        startActivityForResult(Intent(this, LoginActivity::class.java),MainActivityServices.LOGIN)
     }
     private fun createAccountBtnClick(){
-        startActivity(Intent(this,CreateAccountActivity::class.java))
+        startActivity(Intent(this, CreateAccountActivity::class.java))
     }
 }

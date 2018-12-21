@@ -108,9 +108,9 @@ class CreateAccountServices(private val activity: Activity) {
     }
     private fun getAppId(): String{
         return if(BuildConfig.BUILD_TYPE.contentEquals("release")) {
-            "databuyer"
+            "datatraderstaging"
         }else {
-            "databuyer"
+            "datatraderstaging"
         }
     }
     fun getCluster():String{
