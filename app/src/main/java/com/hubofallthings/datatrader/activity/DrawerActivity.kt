@@ -10,6 +10,7 @@ import android.util.Log
 import android.view.View
 import com.hubofallthings.datatrader.R
 import com.hubofallthings.datatrader.fragment.DrawerFragment
+import com.hubofallthings.datatrader.service.EnableDataTraderApp
 
 class DrawerActivity : AppCompatActivity(){
 
@@ -30,7 +31,6 @@ class DrawerActivity : AppCompatActivity(){
         supportActionBar!!.setDisplayShowHomeEnabled(true)
         drawerFragment = supportFragmentManager.findFragmentById(R.id.fragment_navigation_drawer) as DrawerFragment
         drawerFragment!!.setUpDrawer(R.id.fragment_navigation_drawer, findViewById<View>(R.id.drawer_layout) as DrawerLayout, toolbar!!)
-
         showOnBoarding()
     }
 

@@ -62,7 +62,7 @@ internal constructor(val activity: Activity, private val offers: List<DataOfferO
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         if(isPositionHeader(position)){
             holder.headerVoucher?.text = header.first.toString()
-            holder.headerCash?.text = header.second.toString()
+            holder.headerCash?.text = activity.getString(R.string.cash_earned_value,header.second.toString())
             holder.headerPannel?.text = header.third.toString()
         } else {
             val offer = offers[position-1]

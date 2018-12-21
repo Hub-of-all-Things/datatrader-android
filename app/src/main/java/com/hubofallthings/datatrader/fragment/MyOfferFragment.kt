@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import com.hubofallthings.datatrader.R
 import com.hubofallthings.datatrader.service.BrowseOffersServices
 import android.support.v4.view.ViewPager
+import android.widget.Toast
 import com.hubofallthings.android.hatApi.HATError
 import com.hubofallthings.android.hatApi.objects.dataoffers.DataOfferObject
 import com.hubofallthings.android.hatApi.services.HATDataOffersService
@@ -43,7 +44,8 @@ class MyOfferFragment : Fragment() , View.OnClickListener {
         val token = mUserHelper.getToken()
         val userDomain = mUserHelper.getUserDomain()
         val application = "databuyerstaging"
-        val merchants = listOf("merchants" to "datatrader") //todo merchant
+        val merchants = listOf("merchant" to "datatrader") //todo merchant
+        Toast.makeText(context,"Fetching offers",Toast.LENGTH_LONG ).show()
 
         if(!token.isNullOrEmpty()){
             HATDataOffersService().getAvailableDataOffersWithClaims(userDomain,token,application,merchants,{ list, newToken->successfulCallBack(list,newToken)},{ error->failCallBack(error)})
@@ -52,7 +54,6 @@ class MyOfferFragment : Fragment() , View.OnClickListener {
     private fun successfulCallBack(list : List<DataOfferObject>,newToken : String?){
         val acceptedOffers = ArrayList<DataOfferObject>()
         val completedOffers = ArrayList<DataOfferObject>()
-
 
         for(i in list.indices){
             val state = DataOfferStatusManager.getState(list[i])
@@ -66,10 +67,12 @@ class MyOfferFragment : Fragment() , View.OnClickListener {
                 else->{}
             }
         }
+//        Toast.makeText(context,"Init view",Toast.LENGTH_LONG ).show()
+
         initViewPager(acceptedOffers.size,completedOffers.size)
     }
     private fun failCallBack(error : HATError){
-
+        Toast.makeText(context,"Error code : ${error.errorCode}",Toast.LENGTH_LONG ).show()
     }
 
     private fun initViewPager(numOfAccepted : Int,numOfCompleted : Int){

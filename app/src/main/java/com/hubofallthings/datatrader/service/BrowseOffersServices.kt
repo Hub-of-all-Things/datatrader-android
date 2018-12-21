@@ -4,8 +4,10 @@ import android.app.Activity
 import android.content.Intent
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.widget.Toast
 import com.hubofallthings.android.hatApi.HATError
 import com.hubofallthings.android.hatApi.objects.dataoffers.DataOfferObject
+import com.hubofallthings.android.hatApi.objects.extrernalapps.HATApplicationObject
 import com.hubofallthings.android.hatApi.services.HATDataOffersService
 import com.hubofallthings.datatrader.R
 import com.hubofallthings.datatrader.activity.MainActivity
@@ -61,6 +63,21 @@ class BrowseOffersServices(private val activity : Activity){
         if(error.errorCode == 401){
             logout()
         }
+        if(error.errorCode==400){
+            EnableDataTraderApp(activity).enableDataTrader({app,newToken ->successAppEnable(app,newToken)},{appError->failAppEnable(appError)})
+        }
+    }
+    private fun successAppEnable(app : HATApplicationObject?, newToken : String?){
+        if(app!=null){
+            if(!app.enabled){
+                Toast.makeText(activity,"Error : app not enabled", Toast.LENGTH_SHORT).show()
+            }else {
+                getOffers()
+            }
+        }
+    }
+    private fun failAppEnable(error : HATError){
+        Toast.makeText(activity,"Enable error code ${error.errorCode}", Toast.LENGTH_SHORT).show()
     }
     private fun logout(){
         mPreference.setLoginStatus(false)

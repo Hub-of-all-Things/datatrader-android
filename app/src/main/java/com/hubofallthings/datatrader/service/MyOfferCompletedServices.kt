@@ -29,7 +29,7 @@ class MyOfferCompletedServices(private val activity : Activity){
         val token = mUserHelper.getToken()
         val userDomain = mUserHelper.getUserDomain()
         val application = "databuyerstaging"
-        val merchants = listOf("merchants" to "datatrader")//todo merchant
+        val merchants = listOf("merchant" to "datatrader")
 
         if(!token.isNullOrEmpty()){
             HATDataOffersService().getAvailableDataOffersWithClaims(userDomain,token,application,merchants,{ list, newToken->successfulCallBack(list,newToken)},{ error->failCallBack(error)})
