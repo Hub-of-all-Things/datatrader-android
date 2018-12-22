@@ -15,9 +15,6 @@
                 <action android:name="android.intent.action.VIEW"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
-                <data
-                        android:host="datadebitfailure"
-                        android:scheme="datatraderstaging" />
             </intent-filter>
         </activity>
         <activity android:name=".activity.DrawerActivity">
@@ -35,6 +32,9 @@
 
                 <data
                         android:host="datadebithost"
+                        android:scheme="datatraderstaging" />
+                <data
+                        android:host="datadebitfailure"
                         android:scheme="datatraderstaging" />
             </intent-filter>
         </activity>
