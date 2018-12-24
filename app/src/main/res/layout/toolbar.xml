@@ -14,7 +14,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:fontFamily="@font/open_sans_condensed_bold"
+            android:fontFamily="@font/oswald_bold"
             android:text="@string/browse_offers"
             android:textColor="#FFFFFF"
             android:textSize="14sp"/>

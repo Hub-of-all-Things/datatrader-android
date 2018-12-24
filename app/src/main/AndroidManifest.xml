@@ -24,6 +24,8 @@
         </activity>
         <activity android:name=".activity.OfferDetailsActivity">
         </activity>
+        <activity android:name=".activity.ResetPasswordActivity">
+        </activity>
         <activity android:name=".activity.ConfirmationOfferActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
