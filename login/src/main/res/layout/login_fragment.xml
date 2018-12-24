@@ -57,7 +57,7 @@ android:background="@color/darkBlueBackground">
     <RelativeLayout
             android:layout_width="280dp"
             android:layout_height="50dp"
-            android:background="#ffffff"
+            android:background="@drawable/background_rounded_white"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
@@ -70,6 +70,8 @@ android:background="@color/darkBlueBackground">
                 android:layout_height="50dp"
                 android:background="#ffffff"
                 android:textColorHint="@color/greyLight"
+                android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890"
+
                 android:hint="@string/yourhatname" android:fontFamily="@font/roboto"
                 android:id="@+id/hatUserDomainLoginEt"/>
         <TextView

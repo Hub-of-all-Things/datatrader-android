@@ -39,7 +39,7 @@ class LoginActivity : AppCompatActivity() ,View.OnClickListener{
         hatDomainLoginEt.setOnClickListener(this)
         nextLoginBtn.setOnClickListener(this)
 //        back_button_login.setOnClickListener(this)
-
+        setDomain()
         hatUserDomainLoginEt.addTextChangedListener(object : TextWatcher {
 
             override fun afterTextChanged(s: Editable) {}
@@ -64,7 +64,7 @@ class LoginActivity : AppCompatActivity() ,View.OnClickListener{
                 }else {
                     if(mHATNetworkHelper.isNetworkAvailable()) {
                         nextLoginBtn.isEnabled = false
-                        val userDomain = hatUserDomainLoginEt.text.toString().trim() + hatDomainLoginEt.text.toString().trim()
+                        val userDomain = hatUserDomainLoginEt.text.toString().toLowerCase().trim() + hatDomainLoginEt.text.toString().trim()
                         mLoginServices.validateHATPublicKey(userDomain,
                             { _, _ -> successfulCallBack() },
                             { _ -> failCallBack() })
@@ -103,8 +103,12 @@ class LoginActivity : AppCompatActivity() ,View.OnClickListener{
             }
         }
     }
+    private fun setDomain(){
+        hatDomainLoginEt.text = defaultDomain()
+        mHatDomainServices.setDomain(defaultDomain())
+    }
     private fun successfulCallBack ()  {
-        val userDomain = hatUserDomainLoginEt.text.toString().trim() + hatDomainLoginEt.text.toString().trim()
+        val userDomain = hatUserDomainLoginEt.text.toString().toLowerCase().trim() + hatDomainLoginEt.text.toString().trim()
         mLoginServices.setUserDomain(userDomain)
         mHatDomainServices.setDomain("")
         mLoginServices.setHATName("")
@@ -147,6 +151,13 @@ class LoginActivity : AppCompatActivity() ,View.OnClickListener{
 //            nextLoginBtn.isEnabled = false
 //            nextLoginBtn.background = ContextCompat.getDrawable(this, R.drawable.button_disabled_rounded)
 //        }
+    }
+    private fun defaultDomain() : String{
+        return if(BuildConfig.BUILD_TYPE.contentEquals("release")) {
+            ".hubofallthings.net"
+        }else {
+            ".hubat.net"
+        }
     }
 
     override fun onBackPressed() {
