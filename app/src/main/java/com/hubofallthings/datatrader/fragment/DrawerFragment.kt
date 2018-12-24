@@ -77,8 +77,14 @@ class DrawerFragment : Fragment() , View.OnClickListener {
 
             }
         }))
-        openFragment(0)
+
         return views
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val openFragmentID = activity!!.intent.getIntExtra("open_fragment",0)
+        openFragment(openFragmentID)
     }
 
     override fun onClick(v: View?) {

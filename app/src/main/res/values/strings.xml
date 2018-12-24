@@ -68,6 +68,8 @@
 
 
     <string name="actions_required_string">1. Accept offer\n\n2. Await offer fulfilment\n\n3. Enjoy your benefits</string>
+    <string name="password_reset_requested">Password reset requested</string>
+    <string name="ok">OK</string>
 
 
 </resources>

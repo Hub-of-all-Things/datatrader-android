@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import com.hubofallthings.datatrader.R
 import com.hubofallthings.datatrader.service.BrowseOffersServices
 import android.support.v4.view.ViewPager
+import android.widget.TextView
 import android.widget.Toast
 import com.hubofallthings.android.hatApi.HATError
 import com.hubofallthings.android.hatApi.objects.dataoffers.DataOfferObject
@@ -38,6 +39,10 @@ class MyOfferFragment : Fragment() , View.OnClickListener {
         if(activity!=null){
             mUserHelper = UserHelper(activity!!)
             getAvailableOffers()
+            val toolbarTitle: TextView? = activity?.findViewById(R.id.toolbar_title)
+            if(toolbarTitle!=null){
+                toolbarTitle.text = getString(R.string.my_offers)
+            }
         }
     }
     private fun getAvailableOffers(){
