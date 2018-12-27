@@ -21,7 +21,7 @@ object Versions {
     val minSdk = 21
     val targetSdk = 28
 
-    val kotlin = "1.3.10"
+    val kotlin = "1.3.11"
 
     val hatApi = "0.0.31.3"
     val googleServices = "4.0.1"

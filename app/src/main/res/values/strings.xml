@@ -61,7 +61,7 @@
     <string name="datatrader">DataTrader</string>
     <string name="accept">Accept</string>
     <string name="cash_earned_value">£%1$s</string>
-    <string name="reset_password_email">Checked your email for your passwrod reset request. You now have been logged out</string>
+    <string name="reset_password_email">Checked your email for your password reset request. You now have been logged out</string>
 
     <string name="reset_password_email_hint"><font size="14">Enter HAT-registered email address</font></string>
     <string name="reset_password_sub">If you are the owner of this HAT, please enter your registered email address</string>

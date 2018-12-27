@@ -5,11 +5,11 @@
                                              android:layout_height="match_parent">
 
     <ImageView
-            android:layout_width="203dp"
-            android:layout_height="300dp" app:srcCompat="@drawable/donate_onboarding_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" app:srcCompat="@drawable/donate_onboarding_img"
             android:id="@+id/imageView8" android:layout_marginStart="8dp"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="150dp" app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="130dp" app:layout_constraintTop_toTopOf="parent"
             android:contentDescription="@string/donate_your_data_for_research_on_boarding_image"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"/>
     <TextView

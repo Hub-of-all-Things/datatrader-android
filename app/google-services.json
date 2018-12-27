@@ -1,0 +1,104 @@
+{
+  "project_info": {
+    "project_number": "575774116198",
+    "firebase_url": "https://datatrader-267b0.firebaseio.com",
+    "project_id": "datatrader-267b0",
+    "storage_bucket": "datatrader-267b0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:575774116198:android:7ef79b6d3c86e128",
+        "android_client_info": {
+          "package_name": "com.hubofallthings.datatrader"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "575774116198-l69mgjv50sv4p8rsjfb8jipu341ikbdq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyByLRkBQp-rgm4fcZZa3SR01Kq-IRtcUO8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:575774116198:android:8aee3780bb6e03f3",
+        "android_client_info": {
+          "package_name": "com.hubofallthings.datatrader.beta"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "575774116198-l69mgjv50sv4p8rsjfb8jipu341ikbdq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyByLRkBQp-rgm4fcZZa3SR01Kq-IRtcUO8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:575774116198:android:bc2fd2b46e072b4a",
+        "android_client_info": {
+          "package_name": "com.hubofallthings.datatrader.debug"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "575774116198-l69mgjv50sv4p8rsjfb8jipu341ikbdq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyByLRkBQp-rgm4fcZZa3SR01Kq-IRtcUO8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

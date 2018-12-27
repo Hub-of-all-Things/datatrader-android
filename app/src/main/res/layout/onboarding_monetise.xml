@@ -5,13 +5,13 @@
                                              android:layout_height="match_parent">
 
     <ImageView
-            android:layout_width="187dp"
-            android:layout_height="300dp" app:srcCompat="@drawable/monetise_onboarding_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" app:srcCompat="@drawable/monetise_onboarding_img"
             android:id="@+id/imageView8" android:layout_marginStart="8dp"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
             android:contentDescription="@string/monetise_the_value_of_your_data_on_boarding_image"
 
-            android:layout_marginEnd="8dp" android:layout_marginTop="150dp" app:layout_constraintTop_toTopOf="parent"/>
+            android:layout_marginEnd="8dp" android:layout_marginTop="130dp" app:layout_constraintTop_toTopOf="parent"/>
     <TextView
             android:text="@string/monetise_the_value_of_your_data"
             android:layout_width="wrap_content"
