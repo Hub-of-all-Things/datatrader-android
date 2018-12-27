@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.login_fragment.*
 /**
  * Created by Myteletsis Eleftherios on 29/10/2018.
  */
-class LoginActivity : AppCompatActivity() ,View.OnClickListener{
+class LoginActivityOld : AppCompatActivity() ,View.OnClickListener{
 
     private val loginWeb = 166
     private val domainActivity = 167

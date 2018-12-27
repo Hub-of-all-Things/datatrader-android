@@ -2,7 +2,7 @@
           package="com.hubofallthings.login">
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <application>
-        <activity android:name=".LoginActivity" />
+        <activity android:name=".LoginActivityHAT" />
         <activity android:name=".WebActivity" />
         <activity android:name=".HATDomainActivity" />
         <meta-data android:name="preloaded_fonts" android:resource="@array/preloaded_fonts"/>

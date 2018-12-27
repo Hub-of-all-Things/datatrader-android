@@ -23,7 +23,7 @@ class WebServices(private var activity: Activity) {
         }
     }
 
-    // failed result from login to HAT , go to LoginActivity
+    // failed result from login to HAT , go to LoginActivityOld
     fun signInFail (error : HATError) {
         Toast.makeText(activity, error.errorMessage, Toast.LENGTH_LONG).show()
         activity.setResult(RESULT_CANCELED).also { activity.finish() }

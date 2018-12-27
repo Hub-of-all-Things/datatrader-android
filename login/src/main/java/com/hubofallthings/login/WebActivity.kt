@@ -68,7 +68,7 @@ class WebActivity : AppCompatActivity() {
     fun success (userDomain : String? , newToken : String?) : Unit {
         mWebServices.signInSuccess(userDomain,newToken)
     }
-    // failed result from login to HAT , go to LoginActivity
+    // failed result from login to HAT , go to LoginActivityOld
     fun failed (error : HATError): Unit {
         mWebServices.signInFail(error)
     }

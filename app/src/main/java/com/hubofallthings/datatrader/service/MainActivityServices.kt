@@ -6,7 +6,7 @@ import android.os.Build
 import com.hubofallthings.datatrader.activity.DrawerActivity
 import com.hubofallthings.datatrader.encryption.KeyStoreWrapper
 import com.hubofallthings.datatrader.helper.UserHelper
-import com.hubofallthings.login.LoginActivity
+import com.hubofallthings.login.LoginActivityHAT
 import com.hubofallthings.signup.activity.CreateAccountActivity
 import com.nimbusds.jwt.JWTParser
 import java.text.SimpleDateFormat
@@ -79,7 +79,7 @@ class MainActivityServices(private var activity: Activity) {
     }
     //start Login Activity
     fun startLoginActivity(){
-        val intent = Intent(activity, LoginActivity::class.java)
+        val intent = Intent(activity, LoginActivityHAT::class.java)
         activity.startActivityForResult(intent,LOGIN)
     }
     //start Login Activity

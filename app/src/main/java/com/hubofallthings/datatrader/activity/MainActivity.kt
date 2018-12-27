@@ -8,7 +8,7 @@ import android.view.View
 import com.hubofallthings.datatrader.R
 import com.hubofallthings.datatrader.service.DataTraderPreference
 import com.hubofallthings.datatrader.service.MainActivityServices
-import com.hubofallthings.login.LoginActivity
+import com.hubofallthings.login.LoginActivityHAT
 import com.hubofallthings.signup.activity.CreateAccountActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -56,7 +56,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun loginBtnClick(){
-        startActivityForResult(Intent(this, LoginActivity::class.java),MainActivityServices.LOGIN)
+        startActivityForResult(Intent(this, LoginActivityHAT::class.java),MainActivityServices.LOGIN)
     }
     private fun createAccountBtnClick(){
         startActivity(Intent(this, CreateAccountActivity::class.java))
