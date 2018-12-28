@@ -33,7 +33,7 @@ class DrawerFragment : Fragment() , View.OnClickListener {
     private var containerView: View? = null
     private var recyclerView: RecyclerView? = null
     private var currentActivity : Int = 9
-    private val names = arrayOf("Browse offers", "My offers" ,"Settings")
+    private val names = arrayOf("Recent offers", "My offers" ,"Settings")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -111,7 +111,7 @@ class DrawerFragment : Fragment() , View.OnClickListener {
                     currentActivity = position
                     removeAllFragment(BrowseOffersFragment())
                     if (toolbarTitle != null) {
-                        toolbarTitle.text = getString(R.string.browse_offers)
+                        toolbarTitle.text = getString(R.string.resent_offers)
                         toolbarDrawer?.setBackgroundColor(ContextCompat.getColor(context!!, R.color.toolbar_color))
                     }
                 }

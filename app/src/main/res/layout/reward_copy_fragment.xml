@@ -7,23 +7,30 @@
               android:padding="20dp"
               android:layout_height="wrap_content">
     <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
-              android:text="@string/password_reset_requested" android:textSize="16sp"
+              android:text="@string/reward" android:textSize="16sp"
               android:layout_marginStart="10dp"
               android:layout_marginEnd="10dp"
-              android:fontFamily="@font/oswald_bold"/>
+              android:fontFamily="@font/oswald_bold" android:textColor="@color/darkBlueBackground"/>
     <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
               android:layout_marginTop="15dp"
               android:layout_marginStart="10dp"
               android:layout_marginEnd="10dp"
-              android:text="@string/reset_password_email"
-              android:textSize="14sp" android:fontFamily="@font/oswald_light"/>
+              android:text="@string/your_voucher_is"
+              android:textSize="14sp" android:fontFamily="@font/oswald_light"
+              android:id="@+id/rewardDescriptionDialog"/>
     <Button android:layout_width="match_parent" android:layout_height="40dp"
             android:id="@+id/dialog_accept_button"
             android:layout_marginStart="10dp"
             android:layout_marginTop="15dp"
             android:layout_marginEnd="10dp"
             android:stateListAnimator="@null"
-            android:background="@drawable/login_button_rounded" android:text="@string/ok"
-            android:textColor="#ffffff" android:textAllCaps="false"
-            android:fontFamily="@font/oswald"/>
+            android:background="@drawable/login_button_rounded" android:text="Copy in clipboard"
+            android:textColor="@color/darkBlueBackground" android:textAllCaps="false"
+            android:fontFamily="@font/roboto_medium"/>
+    <TextView
+            android:text="Cancel"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_height="40dp" android:id="@+id/cancelDialog" android:textAlignment="center"
+            android:fontFamily="@font/oswald_light" android:textColor="@color/loginBtnColor"/>
 </LinearLayout>

@@ -8,6 +8,8 @@ import com.bumptech.glide.request.RequestOptions
 import com.hubofallthings.android.hatApi.objects.dataoffers.DataOfferObject
 import com.hubofallthings.android.hatApi.services.HATDataOffersService
 import com.hubofallthings.datatrader.R
+import com.hubofallthings.datatrader.fragment.ResetPasswordDialog
+import com.hubofallthings.datatrader.fragment.RewardCopyClipboardDialog
 import com.hubofallthings.datatrader.helper.HATDateHelper
 import com.hubofallthings.datatrader.manager.DataOfferCriteriaManager
 import com.hubofallthings.datatrader.manager.DataOfferStatusManager
@@ -70,7 +72,9 @@ class OfferDetailsActivity : AppCompatActivity(){
                     acceptOfferBtn.visibility = View.GONE
                     offerDetailsActionsTitle.visibility = View.VISIBLE
                     offerDetailsActionsTitle.text = DataOfferStatusManager.setupReward(offerObject!!)
-                    offerDetailsActionsRequired.text = "Reward"
+                    offerDetailsActionsRequired.text = getString(R.string.reward)
+                    offerDetailsActionsTitle.setTextColor(resources.getColor(R.color.loginBtnColor))
+                    offerDetailsActionsTitle.setOnClickListener { copyToClipBoardDialog() }
                 }
                 DataOfferStatusManager.Available -> {
                     offerDetailsActionsTitle.text = getString(R.string.actions_required_string)
@@ -78,6 +82,13 @@ class OfferDetailsActivity : AppCompatActivity(){
                 }
             }
         }
+    }
+    private fun copyToClipBoardDialog(){
+        val dialog = RewardCopyClipboardDialog()
+        try {
+        if(offerObject!=null)
+            dialog.show(this.fragmentManager, DataOfferStatusManager.getReward(offerObject!!))
+        } catch ( e : IllegalStateException) { }
     }
     private fun acceptOffer(){
         val offerId= offerObject?.dataOfferID
