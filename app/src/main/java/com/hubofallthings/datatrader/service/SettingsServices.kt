@@ -5,6 +5,7 @@ import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.widget.Toast
 import com.hubofallthings.datatrader.activity.MainActivity
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
@@ -35,6 +36,10 @@ class SettingsServices{
     fun sendEmail(activity: Activity?) {
         val emailIntent = Intent(Intent.ACTION_SENDTO)
         emailIntent.data = Uri.parse("mailto:contact@hatdex.org")
-        activity?.startActivity(emailIntent)
+        try {
+            activity?.startActivity(emailIntent)
+        } catch (e : ActivityNotFoundException){
+            Toast.makeText(activity,"We can’t connect to your mail app, please contact us at contact@hatdex.org", Toast.LENGTH_SHORT).show()
+        }
     }
 }

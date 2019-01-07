@@ -158,11 +158,11 @@ class LoginActivityHAT : AppCompatActivity() , View.OnClickListener{
         }
         if(hatDomainEt.text.length>4 && hatNameEt.text.trim().length>1){
             nextLoginBtn.isEnabled = true
-            nextLoginBtn.setTextColor(resources.getColor(R.color.toolbar_color))
-            nextLoginBtn.background = ContextCompat.getDrawable(this, R.drawable.login_button_rounded)
+//            nextLoginBtn.setTextColor(resources.getColor(R.color.toolbar_color))
+            nextLoginBtn.background = ContextCompat.getDrawable(this, R.drawable.button_enabled_rounded)
         } else{
             nextLoginBtn.isEnabled = false
-            nextLoginBtn.setTextColor(resources.getColor(R.color.white_color))
+//            nextLoginBtn.setTextColor(resources.getColor(R.color.white_color))
             nextLoginBtn.background = ContextCompat.getDrawable(this, R.drawable.button_disabled_rounded)
         }
     }

@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
 import android.widget.TextView
+import android.widget.Toast
+import com.hubofallthings.android.hatApi.HATError
 import com.hubofallthings.signup.BuildConfig
 import com.hubofallthings.signup.R
 import com.hubofallthings.signup.objects.CreateAccountObject
@@ -53,7 +55,7 @@ class CreateAccountFinal : AppCompatActivity(), View.OnClickListener {
     private fun createAccount(){
         if(!executed){
             executed= true
-            mCreateAccountServices.createAccount(mCreateObject, {_,_ -> successFulCallBack()},{failCallBack()})
+            mCreateAccountServices.createAccount(mCreateObject, {_,_ -> successFulCallBack()},{e->failCallBack(e)})
         }
     }
     private fun successFulCallBack(){
@@ -63,8 +65,8 @@ class CreateAccountFinal : AppCompatActivity(), View.OnClickListener {
         loginToHatBtn.background = ContextCompat.getDrawable(this, R.drawable.button_enabled_rounded)
         loginToHatBtn.setText(R.string.login_to_hat)
     }
-    private fun failCallBack(){
-        //todo change fail
+    private fun failCallBack(error : HATError){
+        Log.i("createaccount","${error.errorCode}")
         finish()
     }
 }

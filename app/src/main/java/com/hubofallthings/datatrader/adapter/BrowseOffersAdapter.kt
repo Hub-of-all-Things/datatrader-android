@@ -95,12 +95,17 @@ internal constructor(val activity: Activity, private val offers: List<DataOfferO
             DataOfferStatusManager.Accepted -> {
                 DataOfferStatusManager.setupProgressBarOld(offer,holder.offerProgressBar,holder.offerProgressTextView,activity)
                 holder.myOfferBottomLayout.visibility = View.VISIBLE
+                holder.browseOfferBottomLayout.visibility = View.GONE
             }
             DataOfferStatusManager.Completed -> {
                 holder.myOfferBottomLayout.visibility = View.VISIBLE
+                holder.browseOfferBottomLayout.visibility = View.GONE
                 DataOfferStatusManager.setupProgressBarOld(offer,holder.offerProgressBar,holder.offerProgressTextView,activity)
             }
-            DataOfferStatusManager.Available -> {holder.browseOfferBottomLayout.visibility = View.VISIBLE}
+            DataOfferStatusManager.Available -> {
+                holder.browseOfferBottomLayout.visibility = View.VISIBLE
+                holder.myOfferBottomLayout.visibility = View.GONE
+            }
         }
     }
     // stores and recycles views as they are scrolled off screen

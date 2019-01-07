@@ -31,7 +31,7 @@ class ResetPasswordActivity : AppCompatActivity(){
                                        before: Int, count: Int) {
                 if(checkValues(s.toString())){
                     nextResetPasswordBtn.isEnabled = true
-                    nextResetPasswordBtn.background = ContextCompat.getDrawable(applicationContext,R.drawable.login_button_rounded)
+                    nextResetPasswordBtn.background = ContextCompat.getDrawable(applicationContext,R.drawable.button_enabled_rounded)
                 } else {
                     nextResetPasswordBtn.isEnabled = false
                     nextResetPasswordBtn.background = ContextCompat.getDrawable(applicationContext,R.drawable.button_disabled_rounded)

@@ -21,7 +21,7 @@ android {
         applicationId "com.hubofallthings.datatrader"
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 4
+        versionCode 6
         versionName "1.0.0"
         signingConfig signingConfigs.config
 
@@ -33,7 +33,7 @@ android {
         debug {
             applicationIdSuffix = ".debug"
             testCoverageEnabled = "true"
-            resValue "string", "app_name", "DataTrader Debug"
+            resValue "string", "app_name", "DataTrader Give Debug"
             pseudoLocalesEnabled true
         }
         release {
@@ -44,7 +44,7 @@ android {
         beta {
             initWith release
             applicationIdSuffix = ".beta"
-            resValue "string", "app_name", "DataTrader Beta"
+            resValue "string", "app_name", "DataTrader Give Beta"
             debuggable false
             signingConfig signingConfigs.config
         }
