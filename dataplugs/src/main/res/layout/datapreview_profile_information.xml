@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="15dp"
+
+            android:background="@drawable/white_layout_without_border"
+            android:orientation="vertical" android:id="@+id/information_layout" android:visibility="visible">
+        <TextView
+                android:text="Profile information"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:fontFamily="@font/roboto_bold"
+                android:textColor="@color/toolbar_color" android:textStyle="bold"/>
+
+        <com.hubofallthings.hatappandroid.view.NonScrollListView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/profile_info_list"
+        >
+
+        </com.hubofallthings.hatappandroid.view.NonScrollListView>
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

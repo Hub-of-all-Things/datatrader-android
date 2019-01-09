@@ -1,0 +1,20 @@
+<resources>
+    <string name="your_hat_name">yourhatname</string>
+    <string name="no_preview_found">No previews found. Please connect to see your preview</string>
+    <string name="error_data_plug">ERROR: Data Plug disconnected. Please tap reconnect to re-establish connection.</string>
+    <string name="update_dataplug">There is an update. Please tap the \nupdate button above.</string>
+    <string name="app_rating_learn_more">This app is rated %1$s\nLearn more</string>
+    <string name="data_plugs">Data Plugs</string>
+    <string name="data_plugs_caps">DATA PLUGS</string>
+    <string name="active">Active</string>
+    <string name="connect">CONNECT</string>
+    <string name="loading_data">Loading your data…</string>
+    <string name="data_few_minutes">Data can take a few minutes to come in</string>
+
+
+
+    <string name="data_plugs_comment">Add new data plugs to your account, or view data from existing plugs</string>
+
+
+
+</resources>

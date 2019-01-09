@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white_color">#ffffff</color>
+    <color name="toolbar_color">#4a556b</color>
+    <color name="error_message">#40E36682</color>
+    <color name="error_border">#e36682</color>
+    <color name="colorButtonEnabled">#6297b1</color>
+
+
+</resources>

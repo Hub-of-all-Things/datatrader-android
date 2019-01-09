@@ -31,6 +31,7 @@ class SettingsFragment : Fragment() , View.OnClickListener {
         termsSettings.setOnClickListener(this)
         goToMyHatApp.setOnClickListener(this)
         resetPasswordSettings.setOnClickListener(this)
+        hatEnabledDataSettings.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -46,6 +47,9 @@ class SettingsFragment : Fragment() , View.OnClickListener {
             }
             R.id.termsSettings->{
                 Toast.makeText(context,"Not available",Toast.LENGTH_SHORT).show() //todo terms
+            }
+            R.id.hatEnabledDataSettings->{
+                SettingsServices().openDataPlugs(activity!!)
             }
             R.id.resetPasswordSettings->{
                 val intent = Intent(context, ResetPasswordActivity::class.java)

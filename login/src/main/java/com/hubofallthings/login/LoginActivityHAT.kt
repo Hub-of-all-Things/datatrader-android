@@ -110,7 +110,6 @@ class LoginActivityHAT : AppCompatActivity() , View.OnClickListener{
         super.onActivityResult(requestCode, resultCode, data)
         when(requestCode){
             loginWeb->{
-                val token = data?.extras?.getString("newToken")
                 setResult(resultCode,data)
                 finish()
             }

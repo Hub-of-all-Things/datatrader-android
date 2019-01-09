@@ -111,7 +111,7 @@
 
                     android:textAlignment="viewStart"
                     android:textAllCaps="false"
-                    android:textColor="@drawable/text_color_btn" android:visibility="gone"/>
+                    android:textColor="@drawable/text_color_btn" android:visibility="visible"/>
 
             <Button
                     android:id="@+id/transactionHistory"

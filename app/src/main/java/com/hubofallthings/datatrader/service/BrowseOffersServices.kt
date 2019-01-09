@@ -33,7 +33,10 @@ class BrowseOffersServices(private val activity : Activity){
         val merchants = listOf("merchant" to "datatrader")
 
         if(!token.isNullOrEmpty()){
+            Toast.makeText(activity,"Fetching offers", Toast.LENGTH_SHORT).show()
             HATDataOffersService().getAvailableDataOffersWithClaims(userDomain,token,application,merchants,{list,newToken->successfulCallBack(list,newToken)},{error->failCallBack(error)})
+        }else{
+            logout()
         }
 
     }
@@ -65,6 +68,8 @@ class BrowseOffersServices(private val activity : Activity){
         }
         if(error.errorCode==400){
             EnableDataTraderApp(activity).enableDataTrader({app,newToken ->successAppEnable(app,newToken)},{appError->failAppEnable(appError)})
+        } else {
+            Toast.makeText(activity,"Error code : ${error.errorCode}", Toast.LENGTH_SHORT).show()
         }
     }
     private fun successAppEnable(app : HATApplicationObject?, newToken : String?){

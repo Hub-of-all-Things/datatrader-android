@@ -1,11 +1,13 @@
 package com.hubofallthings.datatrader.service
 
 import android.app.Activity
+import android.content.Intent
 import android.widget.Toast
 import com.hubofallthings.android.hatApi.HATError
 import com.hubofallthings.android.hatApi.managers.HATNetworkManager
 import com.hubofallthings.android.hatApi.managers.ResultType
 import com.hubofallthings.android.hatApi.services.HATDataOffersService
+import com.hubofallthings.datatrader.activity.MainActivity
 import com.hubofallthings.datatrader.helper.ChromeHelper
 import com.hubofallthings.datatrader.helper.UserHelper
 import org.jetbrains.anko.doAsync

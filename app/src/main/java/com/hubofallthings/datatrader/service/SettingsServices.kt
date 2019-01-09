@@ -6,7 +6,10 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.widget.Toast
+import com.hubofallthings.dataplugs.activity.DataPlugsActivity
 import com.hubofallthings.datatrader.activity.MainActivity
+import com.hubofallthings.datatrader.activity.ResetPasswordActivity
+import com.hubofallthings.datatrader.helper.UserHelper
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 
@@ -32,6 +35,15 @@ class SettingsServices{
         try {
             activity?.startActivity(intent)
         } catch (e : ActivityNotFoundException){ }
+    }
+    fun openDataPlugs(activity: Activity){
+        val userHelper = UserHelper(activity)
+        val userDomain = userHelper.getUserDomain()
+        val token = userHelper.getToken()
+        val intent = Intent(activity, DataPlugsActivity::class.java)
+        intent.putExtra("userDomain",userDomain)
+        intent.putExtra("userToken",token)
+        activity.startActivity(intent)
     }
     fun sendEmail(activity: Activity?) {
         val emailIntent = Intent(Intent.ACTION_SENDTO)

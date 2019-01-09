@@ -1,0 +1,10 @@
+apply from: "../common-android-library.gradle"
+
+dependencies {
+    implementation SupportLibraries.appcompat
+    implementation SupportLibraries.design
+    implementation Libraries.glide
+    implementation Libraries.glideTransformation
+    //google custom tabs
+    implementation 'com.android.support:customtabs:28.0.0'
+}

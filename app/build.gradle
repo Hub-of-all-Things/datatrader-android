@@ -25,7 +25,7 @@ android {
         versionName "1.0.0"
         signingConfig signingConfigs.config
 
-        resValue "string", "app_name", "DataTrader Give"
+        resValue "string", "app_name", "DataTraderGive"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
@@ -33,7 +33,7 @@ android {
         debug {
             applicationIdSuffix = ".debug"
             testCoverageEnabled = "true"
-            resValue "string", "app_name", "DataTrader Give Debug"
+            resValue "string", "app_name", "DataTraderGive Debug"
             pseudoLocalesEnabled true
         }
         release {
@@ -44,7 +44,7 @@ android {
         beta {
             initWith release
             applicationIdSuffix = ".beta"
-            resValue "string", "app_name", "DataTrader Give Beta"
+            resValue "string", "app_name", "DataTraderGive Beta"
             debuggable false
             signingConfig signingConfigs.config
         }
@@ -75,6 +75,8 @@ dependencies {
     implementation HATApiLibrary.api
     implementation project(path: ':login')
     implementation project(path: ':signup')
+    implementation project(path: ':dataplugs')
+
 }
 
 apply plugin: 'com.google.gms.google-services'
