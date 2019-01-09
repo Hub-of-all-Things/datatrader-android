@@ -8,8 +8,8 @@ import com.hubofallthings.dataplugs.encryption.KeyStoreWrapper
 class EncryptionServices(context: Context) {
 
     companion object {
-        val DEFAULT_KEY_STORE_NAME = "default_keystore"
-        val MASTER_KEY = "MASTER_KEY"
+        val DEFAULT_KEY_STORE_NAME = "dataplugs_keystore"
+        val MASTER_KEY = "dataplugs_masterkey"
         val ALGORITHM_AES = "AES"
     }
 
