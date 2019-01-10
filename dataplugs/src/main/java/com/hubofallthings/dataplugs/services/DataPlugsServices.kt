@@ -7,6 +7,7 @@ import android.support.design.widget.Snackbar
 import android.view.View
 import android.widget.LinearLayout
 import android.widget.ListView
+import android.widget.Toast
 import com.hubofallthings.android.hatApi.HATError
 import com.hubofallthings.android.hatApi.objects.extrernalapps.HATApplicationObject
 import com.hubofallthings.dataplugs.adapter.DataPlugsAdapter
@@ -36,8 +37,11 @@ class DataPlugsServices(private val activity: Activity){
         showSnackBar()
         val token = getToken()
         val userDomain = getUserDomain()
-        if(token!=null)
+        if(token!=null){
             ExternalAppsServices().getApps(appName,token,userDomain,{ list: List<HATApplicationObject>?, s: String? -> completionDataPlugs(list,s)},{ error -> failcallback(error) })
+        } else {
+            activity.finish()
+        }
     }
     /*
     adds dataplugs into the listview
@@ -53,6 +57,8 @@ class DataPlugsServices(private val activity: Activity){
         snackbar?.dismiss()
         if(error.errorCode == 401){
             goForLogin()
+        } else {
+            Toast.makeText(activity,"Error code: ${error.errorCode}",Toast.LENGTH_SHORT).show()
         }
     }
     //encrypt the newToken and store it to Preference

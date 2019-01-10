@@ -81,42 +81,46 @@ class MyOfferFragment : Fragment() , View.OnClickListener {
     }
 
     private fun initViewPager(numOfAccepted : Int,numOfCompleted : Int){
-        tabLayout = activity?.findViewById(R.id.myOfferTabs)
+        if(activity!=null) {
+            tabLayout = activity?.findViewById(R.id.myOfferTabs)
 
-        // Find the view pager that will allow the user to swipe between fragments
-        val viewPager = activity?.findViewById(R.id.viewpager) as ViewPager
+            // Find the view pager that will allow the user to swipe between fragments
+            val viewPager = activity?.findViewById(R.id.viewpager) as? ViewPager
 
-        // Create an adapter that knows which fragment should be shown on each page
-        val adapter = MyOfferPagerAdapter( activity!!.supportFragmentManager,2,context,numOfAccepted,numOfCompleted)
-        // Set the adapter onto the view pager
-        viewPager.adapter = adapter
+            // Create an adapter that knows which fragment should be shown on each page
+            val adapter =
+                MyOfferPagerAdapter(activity?.supportFragmentManager, 2, context, numOfAccepted, numOfCompleted)
+            // Set the adapter onto the view pager
+            viewPager?.adapter = adapter
 
-        // Give the TabLayout the ViewPager
-        tabLayout?.setupWithViewPager(viewPager)
+            // Give the TabLayout the ViewPager
+            tabLayout?.setupWithViewPager(viewPager)
 
-        // Setting a listener for clicks.
-        viewPager.addOnPageChangeListener(
-            TabLayout.TabLayoutOnPageChangeListener(tabLayout))
-        tabLayout?.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener{
-            override fun onTabSelected(tab: TabLayout.Tab?) {
-                viewPager.currentItem = tab?.position!!
-                when(tab.position){
-                    0->{
+            // Setting a listener for clicks.
+            viewPager?.addOnPageChangeListener(
+                TabLayout.TabLayoutOnPageChangeListener(tabLayout)
+            )
+            tabLayout?.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+                override fun onTabSelected(tab: TabLayout.Tab?) {
+                    viewPager?.currentItem = tab?.position!!
+                    when (tab.position) {
+                        0 -> {
 
-                    }
-                    1->{
+                        }
+                        1 -> {
 
+                        }
                     }
                 }
-            }
 
-            override fun onTabReselected(tab: TabLayout.Tab?) {
-            }
+                override fun onTabReselected(tab: TabLayout.Tab?) {
+                }
 
-            override fun onTabUnselected(tab: TabLayout.Tab?) {
+                override fun onTabUnselected(tab: TabLayout.Tab?) {
+                }
             }
+            )
         }
-        )
     }
 
     override fun onClick(v: View?) {

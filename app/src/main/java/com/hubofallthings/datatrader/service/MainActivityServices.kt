@@ -63,7 +63,7 @@ class MainActivityServices(private var activity: Activity) {
         activity.finish()
     }
     fun getMasterKey(): SecretKey?{
-        val DEFAULT_KEY_STORE_NAME = "default_keystore"
+        val DEFAULT_KEY_STORE_NAME = "datatrader_keystore"
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             return KeyStoreWrapper(activity, DEFAULT_KEY_STORE_NAME).getAndroidKeyStoreSymmetricKey(EncryptionServices.MASTER_KEY)
         } else {

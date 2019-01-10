@@ -6,6 +6,7 @@ import android.os.Build
 import android.security.KeyPairGeneratorSpec
 import android.security.keystore.KeyGenParameterSpec
 import android.security.keystore.KeyProperties
+import java.io.EOFException
 import java.io.File
 import java.io.FileInputStream
 import java.io.FileOutputStream
@@ -159,7 +160,11 @@ class KeyStoreWrapper(private val context: Context, defaultKeyStoreName: String)
         if (!defaultKeyStoreFile.exists()) {
             keyStore.load(null)
         } else {
-            keyStore.load(FileInputStream(defaultKeyStoreFile), null)
+//            try{
+                keyStore.load(FileInputStream(defaultKeyStoreFile), null)
+//            }catch (eof : EOFException){
+//                keyStore.load(null)
+//            }
         }
         return keyStore
     }

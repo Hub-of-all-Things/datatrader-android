@@ -39,7 +39,10 @@ class DataPlugsActivity : BaseActivity(){
                 mPreference.setUserDomain(userDomain)
             }
             mPreference.setLoginStatus(true)
+//            netWorkManager()
         }
+
+        back_button_dataplugs.setOnClickListener { finish() }
     }
 
     override fun onNetworkConnectionChanged(isConnected: Boolean) {

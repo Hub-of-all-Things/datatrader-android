@@ -118,7 +118,6 @@ class DataPreviewActivity : AppCompatActivity(){
     private fun completionProfile(r : ResultType?){
         Log.i("profileinfojson", r?.statusCode.toString())
         if(r?.json!=null){
-            Log.i("profileinfojson", r.json.toString())
             profileInfoToObject(r.json!!)
         }
     }

@@ -8,8 +8,8 @@ import com.hubofallthings.datatrader.encryption.KeyStoreWrapper
 class EncryptionServices(context: Context) {
 
     companion object {
-        val DEFAULT_KEY_STORE_NAME = "default_keystore"
-        val MASTER_KEY = "MASTER_KEY"
+        val DEFAULT_KEY_STORE_NAME = "datatrader_keystore"
+        val MASTER_KEY = "datatrader_key"
         val ALGORITHM_AES = "AES"
     }
 
