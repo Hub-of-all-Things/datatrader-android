@@ -142,6 +142,70 @@
                     android:textAlignment="viewStart"
                     android:textAllCaps="false"
                     android:textColor="@drawable/text_color_btn"/>
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="@string/version"/>
+
+            <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:stateListAnimator="@null"
+                    android:background="@drawable/settings_button_background"
+                    android:fontFamily="@font/oswald_bold"
+                    android:paddingEnd="15dp"
+                    android:paddingStart="15dp"
+                    android:text="@string/version_value"
+                    android:textAlignment="viewStart"
+                    android:textAllCaps="false"
+                    android:textColor="@drawable/text_color_btn" />
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:fontFamily="@font/oswald_bold"
+                    android:text="@string/vendor_where_you_got"/>
+
+            <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:stateListAnimator="@null"
+                    android:background="@drawable/settings_button_background"
+                    android:fontFamily="@font/oswald_bold"
+                    android:paddingEnd="15dp"
+                    android:paddingStart="15dp"
+                    android:text="@string/datatradergive"
+                    android:textAlignment="viewStart"
+                    android:textAllCaps="false"
+                    android:textColor="@drawable/text_color_btn"/>
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:fontFamily="@font/oswald_bold"
+                    android:text="@string/hat_issuer"/>
+
+            <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:stateListAnimator="@null"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/settings_button_background"
+                    android:fontFamily="@font/oswald_bold"
+                    android:paddingEnd="15dp"
+                    android:paddingStart="15dp"
+                    android:text="@string/hatdex_ltd"
+                    android:textAlignment="viewStart"
+                    android:textAllCaps="false"
+                    android:textColor="@drawable/text_color_btn"/>
 
         </LinearLayout>
     </ScrollView>
