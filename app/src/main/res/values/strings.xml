@@ -1,7 +1,8 @@
 <resources>
     <string name="version">Version</string>
     <string name="version_value">1.0.0</string>
-    <string name="hatdex_ltd">HATDeX Ltd.</string>
+    <string name="hatdex_ltd">HAT Data Exchange Ltd.</string>
+    <string name="hatlab">HATLAB</string>
     <string name="vendor_where_you_got">Vendor (where you got your HAT)</string>
     <string name="hat_issuer">HAT issuer</string>
     <string name="service_of_hat_lab">Service of hat lab</string>

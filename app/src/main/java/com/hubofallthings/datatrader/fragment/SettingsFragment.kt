@@ -32,6 +32,8 @@ class SettingsFragment : Fragment() , View.OnClickListener {
         goToMyHatApp.setOnClickListener(this)
         resetPasswordSettings.setOnClickListener(this)
         hatEnabledDataSettings.setOnClickListener(this)
+        hatIssuerSettingsTxt.text = SettingsServices().getIssuer()
+        vendorSettingsTxt.text = SettingsServices().getVendor()
     }
 
     override fun onClick(v: View?) {

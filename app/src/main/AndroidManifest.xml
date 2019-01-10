@@ -10,7 +10,9 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".activity.MainActivity">
+        <activity android:name=".activity.MainActivity"
+                  android:configChanges="orientation"
+                  android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <action android:name="android.intent.action.VIEW"/>
@@ -18,16 +20,26 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".activity.DrawerActivity">
+        <activity android:name=".activity.DrawerActivity"
+                  android:configChanges="orientation"
+                  android:screenOrientation="portrait">
 
         </activity>
-        <activity android:name=".activity.OnboardingActivity">
+        <activity android:name=".activity.OnboardingActivity"
+                  android:configChanges="orientation"
+                  android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".activity.OfferDetailsActivity">
+        <activity android:name=".activity.OfferDetailsActivity"
+                  android:configChanges="orientation"
+                  android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".activity.ResetPasswordActivity">
+        <activity android:name=".activity.ResetPasswordActivity"
+                  android:configChanges="orientation"
+                  android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".activity.ConfirmationOfferActivity">
+        <activity android:name=".activity.ConfirmationOfferActivity"
+                  android:configChanges="orientation"
+                  android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />

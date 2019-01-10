@@ -5,6 +5,8 @@ dependencies {
     implementation SupportLibraries.design
     implementation Libraries.glide
     implementation Libraries.glideTransformation
+    //image zoom
+    implementation 'com.github.chrisbanes:PhotoView:2.1.4'
     //google custom tabs
     implementation 'com.android.support:customtabs:28.0.0'
 }

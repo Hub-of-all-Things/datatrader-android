@@ -28,6 +28,7 @@ import com.hubofallthings.dataplugs.services.ExternalAppsServices
 import com.hubofallthings.dataplugs.R
 import com.hubofallthings.dataplugs.activity.AppInfoActivity
 import com.hubofallthings.dataplugs.activity.DataPreviewActivity
+import com.hubofallthings.dataplugs.activity.PermissionsDataPlugs
 import com.hubofallthings.dataplugs.services.Preference
 import java.io.Serializable
 
@@ -299,9 +300,9 @@ class DataPlugsDetailsHelper(private val activity : Activity , view: View , priv
             }
             permissionsDataplugs.setOnClickListener {
                 dialog.dismiss()
-//                val intent = Intent(activity, PermissionsDataPlugs::class.java) //todo permissions
-//                intent.putExtra("dataplug", dataPlug as Serializable)
-//                activity.startActivity(intent)
+                val intent = Intent(activity, PermissionsDataPlugs::class.java)
+                intent.putExtra("dataplug", dataPlug as Serializable)
+                activity.startActivity(intent)
             }
             reconfigure.setOnClickListener {
                 openWebDataPlugs()

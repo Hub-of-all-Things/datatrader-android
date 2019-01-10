@@ -21,6 +21,7 @@ import com.bumptech.glide.load.model.LazyHeaders
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.request.RequestOptions.bitmapTransform
 import com.hubofallthings.dataplugs.R
+import com.hubofallthings.dataplugs.activity.ImagePreviewActivity
 import com.hubofallthings.dataplugs.helpers.HATDateHelper
 import com.hubofallthings.dataplugs.helpers.HATNetworkHelper
 import com.hubofallthings.dataplugs.helpers.UserHelper
@@ -218,8 +219,8 @@ class DataPreviewFeedAdapter(private var activity: Activity, private var items: 
         }
     }
     private fun startImagePreviewActivity(){
-//        val intent = Intent(activity, ImagePreviewActivity::class.java) //todo imagepreview
-//        activity.startActivity(intent)
+        val intent = Intent(activity, ImagePreviewActivity::class.java)
+        activity.startActivity(intent)
     }
     private fun getMapUrl(location : Location) : String{
         val longitude = location.geo?.longitude

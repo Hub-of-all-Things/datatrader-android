@@ -183,7 +183,7 @@
                     android:text="@string/datatradergive"
                     android:textAlignment="viewStart"
                     android:textAllCaps="false"
-                    android:textColor="@drawable/text_color_btn"/>
+                    android:textColor="@drawable/text_color_btn" android:id="@+id/vendorSettingsTxt"/>
             <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -205,7 +205,7 @@
                     android:text="@string/hatdex_ltd"
                     android:textAlignment="viewStart"
                     android:textAllCaps="false"
-                    android:textColor="@drawable/text_color_btn"/>
+                    android:textColor="@drawable/text_color_btn" android:id="@+id/hatIssuerSettingsTxt"/>
 
         </LinearLayout>
     </ScrollView>

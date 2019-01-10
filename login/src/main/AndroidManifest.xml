@@ -2,9 +2,15 @@
           package="com.hubofallthings.login">
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <application>
-        <activity android:name=".LoginActivityHAT" />
-        <activity android:name=".WebActivity" />
-        <activity android:name=".HATDomainActivity" />
+        <activity android:name=".LoginActivityHAT"
+                  android:configChanges="orientation"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".WebActivity"
+                  android:configChanges="orientation"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".HATDomainActivity"
+                  android:configChanges="orientation"
+                  android:screenOrientation="portrait"/>
         <meta-data android:name="preloaded_fonts" android:resource="@array/preloaded_fonts"/>
     </application>
 </manifest>

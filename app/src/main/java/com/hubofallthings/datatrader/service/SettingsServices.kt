@@ -10,8 +10,10 @@ import com.hubofallthings.dataplugs.activity.DataPlugsActivity
 import com.hubofallthings.datatrader.activity.MainActivity
 import com.hubofallthings.datatrader.activity.ResetPasswordActivity
 import com.hubofallthings.datatrader.helper.UserHelper
+import com.hubofallthings.login.BuildConfig
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
+import kotlin.contracts.contract
 
 class SettingsServices{
     private val packageName = "com.hubofallthings.hatappandroid"
@@ -44,6 +46,20 @@ class SettingsServices{
         intent.putExtra("userDomain",userDomain)
         intent.putExtra("userToken",token)
         activity.startActivity(intent)
+    }
+    fun getIssuer() : String {
+        return if(BuildConfig.BUILD_TYPE.contentEquals("release")) {
+            "HAT Data Exchange Ltd."
+        }else {
+            "HATLAB"
+        }
+    }
+    fun getVendor() : String {
+        return if(BuildConfig.BUILD_TYPE.contentEquals("release")) {
+            "DataTraderGive"
+        }else {
+            "DataTraderGive Testing"
+        }
     }
     fun sendEmail(activity: Activity?) {
         val emailIntent = Intent(Intent.ACTION_SENDTO)

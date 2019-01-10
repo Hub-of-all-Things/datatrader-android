@@ -11,9 +11,13 @@
     <string name="loading_data">Loading your data…</string>
     <string name="data_few_minutes">Data can take a few minutes to come in</string>
 
-
-
+    <string name="permission_subtitle">%1$s needs to read and/or write into your HAT microserver and will have the ability to take actions in your HAT. By agreeing, you confirm that you grant the permissions below</string>
+    <string name="dataplug_permissions_title">%1$s permissions:</string>
+    <string name="permission_rating">Rating: %1$s.\nLearn more</string>
+    <string name="app_unrated">This app is not rated yet</string>
     <string name="data_plugs_comment">Add new data plugs to your account, or view data from existing plugs</string>
+    <string name="namespace_subtitle">The app needs to be able to write data in %1$s namespace</string>
+
 
 
 
