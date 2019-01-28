@@ -29,6 +29,11 @@ import com.hubofallthings.dataplugs.helpers.UserHelper
 import com.hubofallthings.dataplugs.objects.FeedItem
 import com.hubofallthings.dataplugs.objects.ProfileInfoDataPreviewObject
 import com.hubofallthings.dataplugs.services.Preference
+import android.content.Intent
+import android.content.ActivityNotFoundException
+import android.net.Uri
+import android.widget.Toast
+
 
 class DataPreviewActivity : AppCompatActivity(){
     private var staticInfoFlag : Boolean = false
@@ -60,12 +65,14 @@ class DataPreviewActivity : AppCompatActivity(){
         }
         val inflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         listHeader = inflater.inflate(R.layout.data_plugs_detailed_header, null)
+        val gotoHatApp = listHeader.findViewById<TextView>(R.id.goToHatAppDataPreviewBtn)
 
         if(dataPlug != null){
             mDataPlugsDetailsHelper = DataPlugsDetailsHelper(this, listHeader, 1)
             mDataPlugsDetailsHelper.initValues(dataPlug!!)
-            endPoint = dataPlug?.application?.status?.dataPreviewEndpoint
-            getProfileInfo(dataPlug?.application?.id)
+//            endPoint = dataPlug?.application?.status?.dataPreviewEndpoint
+//            getProfileInfo(dataPlug?.application?.id)
+            gotoHatApp?.visibility = View.VISIBLE
         }
         if(toolObject != null){
            mToolsDetailsHelper = ToolsDetailsHelper(this,listHeader,1)
@@ -77,11 +84,32 @@ class DataPreviewActivity : AppCompatActivity(){
         listView?.addHeaderView(listHeader)
         listView?.adapter = DataPreviewFeedAdapter(this,null,null,null)
         if(savedInstanceState == null){
-            snackbar = Snackbar.make(findViewById(R.id.dataPreviewLayout), "Fetching previews...", Snackbar.LENGTH_LONG)
-            snackbar?.show()
+//            snackbar = Snackbar.make(findViewById(R.id.dataPreviewLayout), "Fetching previews...", Snackbar.LENGTH_LONG)
+//            snackbar?.show()
         }
         if(endPoint != null && toolObject != null){
            getDataPreview(endPoint)
+        }
+        gotoHatApp?.setOnClickListener {
+            goToHatApp()
+        }
+    }
+    private fun goToHatApp(){
+        val packageName = "com.huboffallthings.hatappandroid.redirect"
+        val intent = Intent(packageName)
+
+        if(dataPlug!=null){
+            intent.putExtra("APP_NAME_FROM_INTENT", dataPlug?.application?.id)
+        }
+        intent.putExtra("USER_DOMAIN_FROM_INTENT", mUserHelper.getUserDomain())
+        intent.putExtra("REDIRECT_FROM_INTENT", "data_plugs_preview")
+        intent.putExtra("APP_NAME_FROM_INTENT", dataPlug?.application?.id)
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        try {
+            startActivity(intent)
+        } catch (e : ActivityNotFoundException){
+            Toast.makeText(this,"Error",Toast.LENGTH_SHORT).show()
+
         }
     }
     private fun getProfileInfo(source : String?){
@@ -199,7 +227,6 @@ class DataPreviewActivity : AppCompatActivity(){
             mapper.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true)
             mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
             profileInfo = mapper.readValue<List<ProfileInfoDataPreviewObject>>(json.content)
-            Log.i("profileinfojson" , "size : " + profileInfo?.size.toString())
             return "ok"
         }
 
@@ -238,8 +265,11 @@ class DataPreviewActivity : AppCompatActivity(){
             feedPreviewFlag = true
             if(feedList == null || feedList!!.isEmpty()){
                 val noPreviewFound = listHeader.findViewById<TextView>(R.id.no_preview_found)
-                noPreviewFound.visibility = View.VISIBLE
+                noPreviewFound.visibility = View.GONE //todo data preview not visible
+                val gotoHatApp = listHeader.findViewById<TextView>(R.id.goToHatAppDataPreviewBtn)
+                gotoHatApp.visibility = View.VISIBLE //todo data preview not visible
             }
+
             if(feedList != null && feedList!!.isNotEmpty()){
                 generateFeedList(feedList)
             }else{

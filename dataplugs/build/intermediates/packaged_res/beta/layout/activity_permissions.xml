@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+                android:background="#eeeeee"
+              android:orientation="vertical" android:layout_height="match_parent">
+    <android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:paddingTop="@dimen/bar_padding"
+                                                android:background="#eeeeee" android:fillViewport="true"
+                                                android:clipToPadding="true">
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:orientation="vertical"
+        >
+
+            <ImageView
+                    android:id="@+id/dataplug_permissions_img"
+                    android:layout_width="110dp"
+                    android:background="@drawable/icon_profile_bg"
+                    android:layout_height="110dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="50dp"
+                    android:src="@drawable/hat_logo_small"/>
+            <TextView
+                    android:layout_width="match_parent"
+                    android:paddingStart="40dp"
+                    android:paddingEnd="40dp"
+                    android:layout_marginTop="10dp"
+
+                    android:layout_gravity="center_horizontal"
+                    android:layout_height="wrap_content" android:id="@+id/id_permissions"
+                    android:textAlignment="center"
+                    android:textColor="#000000" android:fontFamily="@font/roboto" android:textSize="22sp"/>
+
+            <TextView
+                    android:paddingStart="35dp"
+                    android:paddingEnd="35dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/permission_subtitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:id="@+id/permissions_sub_txt"
+                    android:textAlignment="center"
+                    android:textColor="#9a9a9a" android:fontFamily="@font/roboto" android:textSize="12sp"/>
+            <TextView
+                    android:text="@string/permission_rating"
+                    android:layout_width="match_parent"
+                    android:paddingStart="40dp"
+                    android:paddingEnd="40dp"
+                    android:layout_marginTop="10dp"
+
+                    android:layout_gravity="center_horizontal"
+                    android:layout_height="wrap_content" android:id="@+id/rating_permissions"
+                    android:textAlignment="center"
+                    android:textColor="#9a9a9a" android:fontFamily="@font/roboto" android:textSize="12sp"/>
+            <TextView
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/dataplug_permissions_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:id="@+id/permissions_title_txt"
+                    android:textAlignment="textStart"
+                    android:textColor="#9a9a9a" android:fontFamily="@font/roboto" android:textSize="12sp"/>
+            <com.hubofallthings.dataplugs.view.NonScrollListView android:layout_width="match_parent"
+                                                                     android:layout_height="wrap_content"
+                                                                     android:layout_marginTop="8dp"
+                                                                     android:layout_marginBottom="20dp"
+                                                                     android:layout_marginStart="20dp"
+                                                                     android:layout_marginEnd="20dp"
+                                                                     android:id="@+id/permissions_listview">
+
+            </com.hubofallthings.dataplugs.view.NonScrollListView>
+
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:visibility="gone"
+                          android:orientation="vertical" android:id="@+id/dataAccessToLayout">
+
+                <TextView
+                        android:paddingStart="20dp"
+                        android:paddingEnd="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_gravity="center_horizontal"
+                        android:text="Data that Notables have access to:"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="textStart"
+                        android:textColor="#9a9a9a" android:fontFamily="@font/roboto" android:textSize="12sp"/>
+                <com.hubofallthings.dataplugs.view.NonScrollListView android:layout_width="match_parent"
+                                                                         android:layout_height="wrap_content"
+                                                                         android:layout_marginTop="8dp"
+                                                                         android:layout_marginBottom="75dp"
+                                                                         android:layout_marginStart="20dp"
+                                                                         android:layout_marginEnd="20dp"
+                                                                         android:id="@+id/bundle_listview">
+
+                </com.hubofallthings.dataplugs.view.NonScrollListView>
+            </LinearLayout>
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+
+    <Button
+            android:id="@+id/okayBtnPermissions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="25dp"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:background="@drawable/button_enabled_rounded"
+            android:text="OKAY"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:stateListAnimator="@null"
+            android:textStyle="bold" android:layout_centerHorizontal="true" android:layout_alignParentBottom="true"
+            android:fontFamily="@font/roboto"/>
+
+</RelativeLayout>

@@ -72,14 +72,20 @@ class BrowseOffersServices(private val activity : Activity){
         }
     }
     private fun failCallBack(error : HATError){
-        if(error.errorCode == 401){
-            logout()
+        when(error.errorCode){
+            400-> EnableDataTraderApp(activity).enableDataTrader({app,newToken ->successAppEnable(app,newToken)},{appError->failAppEnable(appError)})
+            401-> logout()
+            else ->{
+                Toast.makeText(activity,"Error code : ${error.errorCode}", Toast.LENGTH_SHORT).show()
+            }
+
         }
-        if(error.errorCode==400){
-            EnableDataTraderApp(activity).enableDataTrader({app,newToken ->successAppEnable(app,newToken)},{appError->failAppEnable(appError)})
-        } else {
-            Toast.makeText(activity,"Error code : ${error.errorCode}", Toast.LENGTH_SHORT).show()
-        }
+//        if(error.errorCode == 401){
+//            logout()
+//        }
+//        if(error.errorCode==400){
+//        } else {
+//        }
     }
     private fun successAppEnable(app : HATApplicationObject?, newToken : String?){
         if(app!=null){
