@@ -47,6 +47,7 @@ class SettingsServices{
         intent.putExtra("userToken",token)
         activity.startActivity(intent)
     }
+
     fun getIssuer() : String {
         return if(BuildConfig.BUILD_TYPE.contentEquals("release")) {
             "HAT Data Exchange Ltd."
@@ -59,6 +60,20 @@ class SettingsServices{
             "DataTraderGive"
         }else {
             "DataTraderGive Testing"
+        }
+    }
+    fun openDataDebits(activity: Activity?){
+        val packageName = "com.huboffallthings.hatappandroid.redirect"
+        val intent = Intent(packageName)
+
+        intent.putExtra("USER_DOMAIN_FROM_INTENT", UserHelper(activity!!).getUserDomain())
+        intent.putExtra("REDIRECT_FROM_INTENT", "data_debits_list")
+        intent.putExtra("APP_NAME_FROM_INTENT", "")
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        try {
+            activity?.startActivity(intent)
+        } catch (e : ActivityNotFoundException){
+            Toast.makeText(activity,"Error",Toast.LENGTH_SHORT).show()
         }
     }
     fun sendEmail(activity: Activity?) {

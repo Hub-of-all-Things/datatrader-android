@@ -248,5 +248,5 @@
             android:textColor="@color/darkBlueBackground"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/login_button_rounded"
-            android:layout_height="wrap_content" android:fontFamily="@font/roboto_medium" android:visibility="gone"/>
+            android:layout_height="wrap_content" android:fontFamily="@font/roboto" android:visibility="gone"/>
 </LinearLayout>

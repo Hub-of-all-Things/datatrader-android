@@ -95,7 +95,7 @@ class DataPreviewActivity : AppCompatActivity(){
         }
     }
     private fun goToHatApp(){
-        val packageName = "com.huboffallthings.hatappandroid.redirect"
+        val packageName = "com.hubofallthings.hatappandroid.redirect"
         val intent = Intent(packageName)
 
         if(dataPlug!=null){

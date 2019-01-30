@@ -32,6 +32,7 @@ class SettingsFragment : Fragment() , View.OnClickListener {
         goToMyHatApp.setOnClickListener(this)
         resetPasswordSettings.setOnClickListener(this)
         hatEnabledDataSettings.setOnClickListener(this)
+        transactionHistory.setOnClickListener(this)
         hatIssuerSettingsTxt.text = SettingsServices().getIssuer()
         vendorSettingsTxt.text = SettingsServices().getVendor()
     }
@@ -56,6 +57,9 @@ class SettingsFragment : Fragment() , View.OnClickListener {
             R.id.resetPasswordSettings->{
                 val intent = Intent(context, ResetPasswordActivity::class.java)
                 activity?.startActivity(intent)
+            }
+            R.id.transactionHistory->{
+                SettingsServices().openDataDebits(activity)
             }
         }
     }

@@ -19,7 +19,8 @@
         <item>@font/roboto_bold</item>
         <item>@font/roboto_medium</item>
     </array>
-    <color name="colorButtonEnabled">#6297b1</color>
+    <color name="colorButtonEnabled">#efc42e</color>
+    <color name="colorDataPlugsEnabled">#efc42e</color>
     <color name="darkBlueBackground">#4b556a</color>
     <color name="error_border">#e36682</color>
     <color name="error_message">#40E36682</color>

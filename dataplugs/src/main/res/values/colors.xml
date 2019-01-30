@@ -4,7 +4,9 @@
     <color name="toolbar_color">#4a556b</color>
     <color name="error_message">#40E36682</color>
     <color name="error_border">#e36682</color>
-    <color name="colorButtonEnabled">#6297b1</color>
+    <color name="colorButtonEnabled">#efc42e</color>
+    <color name="colorDataPlugsEnabled">#efc42e</color>
+
     <color name="darkBlueBackground">#4b556a</color>
     <color name="loginBtnColor">#efc42e</color>
 </resources>

@@ -189,7 +189,7 @@ class DataPlugsDetailsHelper(private val activity : Activity , view: View , priv
                 rating_txt.text = plugsDto.application !!.info?.rating?.score
                 dataPlugRatingMsg.visibility = View.VISIBLE
                 dataPlugRatingMsg.text = String.format(activity.resources.getString(R.string.app_rating_learn_more), plugsDto?.application?.info?.rating?.score)
-                dataPlugRatingMsg.setLinkTextColor(activity.resources.getColor(R.color.colorButtonEnabled))
+                dataPlugRatingMsg.setLinkTextColor(activity.resources.getColor(R.color.colorDataPlugsEnabled))
                 val learnMoreClickSpan = object : ClickableSpan() {
                     override fun onClick(view: View) {
                         CustomTabsHelper(activity).startBrowser(ratingUrl)
@@ -238,7 +238,7 @@ class DataPlugsDetailsHelper(private val activity : Activity , view: View , priv
     private fun applicationRunning(){
         data_plugs_datails_status.background = activity.resources.getDrawable(R.drawable.dataplug_button_active)
         data_plugs_datails_status.text = "ACTIVE"
-        data_plugs_datails_status.setTextColor(activity.resources.getColor(R.color.colorButtonEnabled))
+        data_plugs_datails_status.setTextColor(activity.resources.getColor(R.color.colorDataPlugsEnabled))
         data_plugs_datails_status.setCompoundDrawablesWithIntrinsicBounds(R.drawable.check_data_plug_icon, 0, 0, 0)
     }
     private fun applicationUntouched(){
