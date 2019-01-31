@@ -27,7 +27,7 @@
     <string name="my_account">MY ACCOUNT</string>
     <string name="confirm_button">CONFIRM</string>
     <string name="free_hat_account">FREE HAT ACCOUNT</string>
-    <string name="signing_up_microserver">You are signing up to a HAT MICROSERVER\naccount with 1GB of storage</string>
+    <string name="signing_up_microserver">You are signing up to a HAT MICROSERVER\naccount with 100MB of storage</string>
     <string name="by_selecting_confirm_terms">By selecting \'Confirm\' I agree that I have read and accept the HAT Terms and Conditions and Privacy Policy</string>
 
     <string name="email_address">Email Address</string>
@@ -35,7 +35,7 @@
     <string name="have_account">Have an account? Login</string>
 
     <string name="success_free_hat">Success! Your FREE HAT has been created. </string>
-    <string name="one_gb_storage">We have given you 1GB storage to begin</string>
+    <string name="one_gb_storage">We have given you 100MB storage to begin</string>
     <string name="own_private_cloud">You’ve now got your own private cloud microserver to store your personal data</string>
     <string name="tip_web_browser">Tip. You can do more with your HAT on a browser.</string>
     <string name="please_wait">PLEASE WAIT</string>
