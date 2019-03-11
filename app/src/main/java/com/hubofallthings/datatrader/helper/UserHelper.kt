@@ -7,13 +7,13 @@ import com.hubofallthings.datatrader.activity.MainActivity
 import com.hubofallthings.datatrader.encryption.KeyStoreWrapper
 import com.hubofallthings.datatrader.service.DataTraderPreference
 import com.hubofallthings.datatrader.service.EncryptionServices
-import com.nimbusds.jwt.JWT
 import javax.crypto.SecretKey
 
-class UserHelper(private val context: Context){
+class UserHelper(private val context: Context) {
     private val mPreference = DataTraderPreference(context)
-    fun getToken() : String?{
-        if(getLoginStatus()){
+
+    fun getToken(): String? {
+        if (getLoginStatus()) {
             val encryptedToken = mPreference.getToken()
             val masterKey = getMasterKey()
             if (encryptedToken.length > 5 && masterKey != null) {
@@ -24,25 +24,25 @@ class UserHelper(private val context: Context){
         }
         return null
     }
-    fun getUserDomain() : String{
-        return  mPreference.getUserDomain()
+    fun getUserDomain(): String {
+        return mPreference.getUserDomain()
     }
-    private fun getLoginStatus() : Boolean{
+    private fun getLoginStatus(): Boolean {
         return mPreference.getLoginStatus()
     }
-    private fun goForLogin(){
+    fun goForLogin() {
         mPreference.setLoginStatus(false)
         val intent = Intent(context, MainActivity::class.java)
         context.startActivity(intent)
     }
-    //encrypt the newToken and store it to Preference
-    fun encryptToken ( token : String?) {
+    // encrypt the newToken and store it to Preference
+    fun encryptToken(token: String?) {
         val mEncryptionServices = EncryptionServices(context)
         mEncryptionServices.createMasterKey(null)
         val encryptedToken = mEncryptionServices.encrypt(token, null)
         mPreference.setToken(encryptedToken)
     }
-    private fun getMasterKey(): SecretKey?{
+    private fun getMasterKey(): SecretKey? {
         val DEFAULT_KEY_STORE_NAME = "datatrader_keystore"
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             return KeyStoreWrapper(context, DEFAULT_KEY_STORE_NAME).getAndroidKeyStoreSymmetricKey(EncryptionServices.MASTER_KEY)

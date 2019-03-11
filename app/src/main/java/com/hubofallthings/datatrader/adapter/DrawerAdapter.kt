@@ -13,11 +13,10 @@ import com.hubofallthings.datatrader.`object`.DrawerModel
 
 class DrawerAdapter(private val context: Context, arrayList: ArrayList<DrawerModel>) : RecyclerView.Adapter<DrawerAdapter.ViewHolder>() {
 
-    internal var arrayList = ArrayList<DrawerModel>()
-    private val inflater: LayoutInflater
+    private var arrayList = ArrayList<DrawerModel>()
+    private val inflater: LayoutInflater = LayoutInflater.from(context)
 
     init {
-        inflater = LayoutInflater.from(context)
         this.arrayList = arrayList
     }
 
@@ -27,13 +26,7 @@ class DrawerAdapter(private val context: Context, arrayList: ArrayList<DrawerMod
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.title.setText(arrayList[position].getNames())
-
-        //profile image
-//        if(position==0){
-//            holder.iconMenu.setImageResource(R.drawable.data_trader_logo_sign)
-//            holder.iconMenu.visibility = View.VISIBLE
-//        }
+        holder.title.text = arrayList[position].getNames()
     }
 
     override fun getItemCount(): Int {
@@ -43,8 +36,6 @@ class DrawerAdapter(private val context: Context, arrayList: ArrayList<DrawerMod
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var title: TextView = itemView.findViewById(R.id.name) as TextView
         var iconMenu: ImageView = itemView.findViewById(R.id.menu_icon) as ImageView
-
-        var menuLayout : LinearLayout = itemView.findViewById(R.id.menu_layout) as LinearLayout
-
+        var menuLayout: LinearLayout = itemView.findViewById(R.id.menu_layout) as LinearLayout
     }
 }

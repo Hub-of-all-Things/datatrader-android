@@ -13,93 +13,81 @@ import com.hubofallthings.datatrader.R
 import com.hubofallthings.datatrader.activity.MainActivity
 import com.hubofallthings.datatrader.adapter.BrowseOffersAdapter
 import com.hubofallthings.datatrader.helper.UserHelper
-import com.hubofallthings.datatrader.manager.DataOfferStatusManager
 
-class BrowseOffersServices(private val activity : Activity){
+class BrowseOffersServices(private val activity: Activity) {
     val mUserHelper = UserHelper(activity)
     private val mPreference = DataTraderPreference(activity)
     private var recyclerView: RecyclerView? = null
     private lateinit var viewAdapter: RecyclerView.Adapter<*>
     private lateinit var viewManager: RecyclerView.LayoutManager
 
-    fun getOffers(){
+    fun getOffers() {
         getAvailableOffers()
     }
 
-    private fun getAvailableOffers(){
+    private fun getAvailableOffers() {
         val token = mUserHelper.getToken()
         val userDomain = mUserHelper.getUserDomain()
         val application = "databuyerstaging"
         val merchants = listOf("merchant" to "datatrader")
 
-        if(!token.isNullOrEmpty()){
-            Toast.makeText(activity,"Fetching offers", Toast.LENGTH_SHORT).show()
-            HATDataOffersService().getAvailableDataOffersWithClaims(userDomain,token,application,merchants,{list,newToken->successfulCallBack(list,newToken)},{error->failCallBack(error)})
-        }else{
+        if (!token.isNullOrEmpty()) {
+            Toast.makeText(activity, "Fetching offers", Toast.LENGTH_SHORT).show()
+            HATDataOffersService().getAvailableDataOffersWithClaims(
+                userDomain,
+                token,
+                application,
+                merchants,
+                { list, newToken -> successfulCallBack(list, newToken) },
+                { error -> failCallBack(error) })
+        } else {
             logout()
         }
-
     }
 
-    private fun successfulCallBack(list: List<DataOfferObject>?,newToken : String?) {
+    private fun successfulCallBack(list: List<DataOfferObject>?, newToken: String?) {
         list?.let {
             viewManager = LinearLayoutManager(activity)
 
             viewAdapter = BrowseOffersAdapter(activity, it)
-            recyclerView =  activity.findViewById<RecyclerView?>(R.id.browseOffersRecyclerView)
-            recyclerView?.let { rv->
+            recyclerView = activity.findViewById<RecyclerView?>(R.id.browseOffersRecyclerView)
+            recyclerView?.let { rv ->
                 rv.setHasFixedSize(true)
                 rv.layoutManager = viewManager
                 rv.adapter = viewAdapter
             }
-
-//            recyclerView = activity.findViewById<RecyclerView>(R.id.browseOffersRecyclerView).apply {
-//
-//                    // use this setting to improve performance if you know that changes
-//                    // in content do not change the layout size of the RecyclerView
-//                    recyclerView
-//                    setHasFixedSize(true)
-//
-//                    // use a linear layout manager
-//                    layoutManager = viewManager
-//
-//                    // specify an viewAdapter (see also next example)
-//                    adapter = viewAdapter
-//                }
         }
-        if(!newToken.isNullOrEmpty()){
+        if (!newToken.isNullOrEmpty()) {
             mUserHelper.encryptToken(newToken)
         }
     }
-    private fun failCallBack(error : HATError){
-        when(error.errorCode){
-            400-> EnableDataTraderApp(activity).enableDataTrader({app,newToken ->successAppEnable(app,newToken)},{appError->failAppEnable(appError)})
-            401-> logout()
-            else ->{
-                Toast.makeText(activity,"Error code : ${error.errorCode}", Toast.LENGTH_SHORT).show()
-            }
 
+    private fun failCallBack(error: HATError) {
+        when (error.errorCode) {
+            400 -> EnableDataTraderApp(activity).enableDataTrader({ app, newToken -> successAppEnable(app, newToken) },
+                { appError -> failAppEnable(appError) })
+            401 -> logout()
+            else -> {
+                Toast.makeText(activity, "Error code : ${error.errorCode}", Toast.LENGTH_SHORT).show()
+            }
         }
-//        if(error.errorCode == 401){
-//            logout()
-//        }
-//        if(error.errorCode==400){
-//        } else {
-//        }
     }
-    private fun successAppEnable(app : HATApplicationObject?, newToken : String?){
-        if(app!=null){
-            if(!app.enabled){
-                Toast.makeText(activity,"Error : app not enabled", Toast.LENGTH_SHORT).show()
-            }else {
+
+    private fun successAppEnable(app: HATApplicationObject?, newToken: String?) {
+        if (app != null) {
+            if (!app.enabled) {
+                Toast.makeText(activity, "Error : app not enabled", Toast.LENGTH_SHORT).show()
+            } else {
                 getOffers()
             }
         }
     }
-    private fun failAppEnable(error : HATError){
-        Toast.makeText(activity,"Enable error code ${error.errorCode}", Toast.LENGTH_SHORT).show()
+
+    private fun failAppEnable(error: HATError) {
+        Toast.makeText(activity, "Enable error code ${error.errorCode}", Toast.LENGTH_SHORT).show()
     }
-    private fun logout(){
+
+    private fun logout() {
         mPreference.setLoginStatus(false)
         val intent = Intent(activity, MainActivity::class.java)
         activity.startActivity(intent)

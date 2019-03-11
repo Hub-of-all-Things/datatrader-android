@@ -1,6 +1,5 @@
 package com.hubofallthings.datatrader.fragment
 
-
 import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -13,13 +12,12 @@ import com.hubofallthings.datatrader.activity.ResetPasswordActivity
 import com.hubofallthings.datatrader.service.SettingsServices
 import kotlinx.android.synthetic.main.settings_fragment.*
 
-class SettingsFragment : Fragment() , View.OnClickListener {
+class SettingsFragment : Fragment(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View?  {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.settings_fragment, container, false)
     }
@@ -38,27 +36,27 @@ class SettingsFragment : Fragment() , View.OnClickListener {
     }
 
     override fun onClick(v: View?) {
-        when(v?.id){
+        when (v?.id) {
             R.id.logoutSettings -> {
                 SettingsServices().logout(activity)
             }
-            R.id.techSupportSettings->{
+            R.id.techSupportSettings -> {
                 SettingsServices().sendEmail(activity)
             }
-            R.id.goToMyHatApp->{
+            R.id.goToMyHatApp -> {
                 SettingsServices().startNewAppOrMarket(activity)
             }
-            R.id.termsSettings->{
-                Toast.makeText(context,"Not available",Toast.LENGTH_SHORT).show() //todo terms
+            R.id.termsSettings -> {
+                Toast.makeText(context, "Not available", Toast.LENGTH_SHORT).show() // todo terms
             }
-            R.id.hatEnabledDataSettings->{
+            R.id.hatEnabledDataSettings -> {
                 SettingsServices().openDataPlugs(activity!!)
             }
-            R.id.resetPasswordSettings->{
+            R.id.resetPasswordSettings -> {
                 val intent = Intent(context, ResetPasswordActivity::class.java)
                 activity?.startActivity(intent)
             }
-            R.id.transactionHistory->{
+            R.id.transactionHistory -> {
                 SettingsServices().openDataDebits(activity)
             }
         }

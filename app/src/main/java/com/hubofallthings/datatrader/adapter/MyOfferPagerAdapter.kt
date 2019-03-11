@@ -5,18 +5,15 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentStatePagerAdapter
 import com.hubofallthings.datatrader.R
-import com.hubofallthings.datatrader.fragment.BrowseOffersFragment
 import com.hubofallthings.datatrader.fragment.OffersAcceptedFragment
 import com.hubofallthings.datatrader.fragment.OffersCompletedFragment
-import com.hubofallthings.datatrader.fragment.SettingsFragment
 
-
-class MyOfferPagerAdapter(fm: FragmentManager?, private var mNumOfTabs: Int,private val mContext : Context?,private val numOfAccepted : Int,private val numOfCompleted : Int) : FragmentStatePagerAdapter(fm) {
+class MyOfferPagerAdapter(fm: FragmentManager?, private var mNumOfTabs: Int, private val mContext: Context?, private val numOfAccepted: Int, private val numOfCompleted: Int) : FragmentStatePagerAdapter(fm) {
     override fun getItem(position: Int): Fragment? {
         return when (position) {
             0 -> OffersAcceptedFragment()
             1 -> OffersCompletedFragment()
-            else-> null
+            else -> null
         }
     }
 
@@ -26,8 +23,8 @@ class MyOfferPagerAdapter(fm: FragmentManager?, private var mNumOfTabs: Int,priv
 
     override fun getPageTitle(position: Int): CharSequence? {
         return when (position) {
-            0 -> mContext?.getString(R.string.accepted,numOfAccepted.toString())
-            1 -> mContext?.getString(R.string.completed,numOfCompleted.toString())
+            0 -> mContext?.getString(R.string.accepted, numOfAccepted.toString())
+            1 -> mContext?.getString(R.string.completed, numOfCompleted.toString())
             else -> null
         }
     }

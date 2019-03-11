@@ -1,6 +1,5 @@
 package com.hubofallthings.datatrader.fragment
 
-import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.TabLayout
 import android.support.v4.app.Fragment
@@ -8,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.hubofallthings.datatrader.R
-import com.hubofallthings.datatrader.service.BrowseOffersServices
 import android.support.v4.view.ViewPager
 import android.widget.TextView
 import android.widget.Toast
@@ -19,69 +17,75 @@ import com.hubofallthings.datatrader.adapter.MyOfferPagerAdapter
 import com.hubofallthings.datatrader.helper.UserHelper
 import com.hubofallthings.datatrader.manager.DataOfferStatusManager
 
-
-class MyOfferFragment : Fragment() , View.OnClickListener {
-    private var tabLayout : TabLayout? = null
-    private lateinit var mUserHelper : UserHelper
+class MyOfferFragment : Fragment(), View.OnClickListener {
+    private var tabLayout: TabLayout? = null
+    private lateinit var mUserHelper: UserHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View?  {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.my_offers_fragment, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        if(activity!=null){
+        if (activity != null) {
             mUserHelper = UserHelper(activity!!)
             getAvailableOffers()
             val toolbarTitle: TextView? = activity?.findViewById(R.id.toolbar_title)
-            if(toolbarTitle!=null){
+            if (toolbarTitle != null) {
                 toolbarTitle.text = getString(R.string.my_offers)
             }
         }
     }
-    private fun getAvailableOffers(){
+
+    private fun getAvailableOffers() {
         val token = mUserHelper.getToken()
         val userDomain = mUserHelper.getUserDomain()
         val application = "databuyerstaging"
-        val merchants = listOf("merchant" to "datatrader") //todo merchant
-        Toast.makeText(context,"Fetching offers",Toast.LENGTH_LONG ).show()
+        val merchants = listOf("merchant" to "datatrader")
+        Toast.makeText(context, "Fetching offers", Toast.LENGTH_LONG).show()
 
-        if(!token.isNullOrEmpty()){
-            HATDataOffersService().getAvailableDataOffersWithClaims(userDomain,token,application,merchants,{ list, newToken->successfulCallBack(list,newToken)},{ error->failCallBack(error)})
+        if (!token.isNullOrEmpty()) {
+            HATDataOffersService().getAvailableDataOffersWithClaims(
+                userDomain,
+                token,
+                application,
+                merchants,
+                { list, newToken -> successfulCallBack(list, newToken) },
+                { error -> failCallBack(error) })
         }
     }
-    private fun successfulCallBack(list : List<DataOfferObject>,newToken : String?){
+
+    private fun successfulCallBack(list: List<DataOfferObject>, newToken: String?) {
         val acceptedOffers = ArrayList<DataOfferObject>()
         val completedOffers = ArrayList<DataOfferObject>()
 
-        for(i in list.indices){
+        for (i in list.indices) {
             val state = DataOfferStatusManager.getState(list[i])
-            when(state){
-                DataOfferStatusManager.Completed->{
+            when (state) {
+                DataOfferStatusManager.Completed -> {
                     completedOffers.add(list[i])
                 }
-                DataOfferStatusManager.Accepted->{
+                DataOfferStatusManager.Accepted -> {
                     acceptedOffers.add(list[i])
                 }
-                else->{}
+                else -> {
+                }
             }
         }
-//        Toast.makeText(context,"Init view",Toast.LENGTH_LONG ).show()
-
-        initViewPager(acceptedOffers.size,completedOffers.size)
-    }
-    private fun failCallBack(error : HATError){
-        Toast.makeText(context,"Error code : ${error.errorCode}",Toast.LENGTH_LONG ).show()
+        initViewPager(acceptedOffers.size, completedOffers.size)
     }
 
-    private fun initViewPager(numOfAccepted : Int,numOfCompleted : Int){
-        if(activity!=null) {
+    private fun failCallBack(error: HATError) {
+        Toast.makeText(context, "Error code : ${error.errorCode}", Toast.LENGTH_LONG).show()
+    }
+
+    private fun initViewPager(numOfAccepted: Int, numOfCompleted: Int) {
+        if (activity != null) {
             tabLayout = activity?.findViewById(R.id.myOfferTabs)
 
             // Find the view pager that will allow the user to swipe between fragments
@@ -105,10 +109,8 @@ class MyOfferFragment : Fragment() , View.OnClickListener {
                     viewPager?.currentItem = tab?.position!!
                     when (tab.position) {
                         0 -> {
-
                         }
                         1 -> {
-
                         }
                     }
                 }
@@ -124,7 +126,7 @@ class MyOfferFragment : Fragment() , View.OnClickListener {
     }
 
     override fun onClick(v: View?) {
-        when(v?.id){
+        when (v?.id) {
         }
     }
 }

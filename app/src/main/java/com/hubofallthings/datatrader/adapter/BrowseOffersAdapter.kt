@@ -2,13 +2,10 @@ package com.hubofallthings.datatrader.adapter
 
 import android.app.Activity
 import android.content.Intent
-import android.location.Geocoder
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
@@ -21,19 +18,15 @@ import com.hubofallthings.datatrader.helper.HATDateHelper
 import com.hubofallthings.datatrader.utils.Util
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation
 import java.text.SimpleDateFormat
-import java.util.*
-import android.R.attr.thumbnail
-import android.graphics.drawable.Drawable
 import android.support.constraint.ConstraintLayout
 import android.widget.ProgressBar
-import com.bumptech.glide.RequestBuilder
 import com.hubofallthings.datatrader.activity.OfferDetailsActivity
 import com.hubofallthings.datatrader.manager.DataOfferStatusManager
 import java.io.Serializable
+import java.util.*
 
-
-class BrowseOffersAdapter// data is passed into the constructor
-internal constructor(val activity: Activity, private val offers: List<DataOfferObject>):
+class BrowseOffersAdapter
+internal constructor(val activity: Activity, private val offers: List<DataOfferObject>) :
     RecyclerView.Adapter<BrowseOffersAdapter.ViewHolder>() {
     private val TAG = BrowseOffersAdapter::class.java.simpleName
     private val mInflater: LayoutInflater = LayoutInflater.from(activity)
@@ -43,14 +36,13 @@ internal constructor(val activity: Activity, private val offers: List<DataOfferO
         CenterCrop(),
         RoundedCornersTransformation(Util().convertDpToPixel(5f), 0, RoundedCornersTransformation.CornerType.TOP)
     )
-    val requestOptions = RequestOptions()
+    private val requestOptions = RequestOptions()
         .centerCrop()
         .transforms(transformationCornerHeader)
 
-    val thumbnail = Glide.with(activity)
+    private val thumbnail = Glide.with(activity)
         .load(R.drawable.browse_offers_placeholder)
         .apply(requestOptions)
-
 
     // inflates the row layout from xml when needed
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -64,7 +56,7 @@ internal constructor(val activity: Activity, private val offers: List<DataOfferO
         val offer = offers[position]
         holder.browseSubtitle?.text = offer.shortDescription
         holder.browseTitle?.text = offer.title
-        holder.expiredBrowseDate?.text = HATDateHelper().tryParseDateOutput(offer.offerExpires,"'Expires 'd MMM yyyy")
+        holder.expiredBrowseDate?.text = HATDateHelper().tryParseDateOutput(offer.offerExpires, "'Expires 'd MMM yyyy")
         Glide
             .with(activity)
             .load(offer.imageUrl)
@@ -72,10 +64,10 @@ internal constructor(val activity: Activity, private val offers: List<DataOfferO
             .thumbnail(thumbnail)
             .into(holder.browseImagePreview)
 
-        footerView(holder,offer)
+        footerView(holder, offer)
         holder.browseOfferLayout.setOnClickListener {
             val intent = Intent(activity, OfferDetailsActivity::class.java)
-            intent.putExtra("offer",offer as Serializable)
+            intent.putExtra("offer", offer as Serializable)
             activity.startActivity(intent)
         }
     }
@@ -88,19 +80,29 @@ internal constructor(val activity: Activity, private val offers: List<DataOfferO
     override fun getItemViewType(position: Int): Int {
         return super.getItemViewType(position)
     }
-    private fun footerView(holder: ViewHolder , offer : DataOfferObject){
-        val state = DataOfferStatusManager.getState(offer)
-        when(state){
 
+    private fun footerView(holder: ViewHolder, offer: DataOfferObject) {
+        val state = DataOfferStatusManager.getState(offer)
+        when (state) {
             DataOfferStatusManager.Accepted -> {
-                DataOfferStatusManager.setupProgressBarOld(offer,holder.offerProgressBar,holder.offerProgressTextView,activity)
+                DataOfferStatusManager.setupProgressBarOld(
+                    offer,
+                    holder.offerProgressBar,
+                    holder.offerProgressTextView,
+                    activity
+                )
                 holder.myOfferBottomLayout.visibility = View.VISIBLE
                 holder.browseOfferBottomLayout.visibility = View.GONE
             }
             DataOfferStatusManager.Completed -> {
                 holder.myOfferBottomLayout.visibility = View.VISIBLE
                 holder.browseOfferBottomLayout.visibility = View.GONE
-                DataOfferStatusManager.setupProgressBarOld(offer,holder.offerProgressBar,holder.offerProgressTextView,activity)
+                DataOfferStatusManager.setupProgressBarOld(
+                    offer,
+                    holder.offerProgressBar,
+                    holder.offerProgressTextView,
+                    activity
+                )
             }
             DataOfferStatusManager.Available -> {
                 holder.browseOfferBottomLayout.visibility = View.VISIBLE
@@ -108,6 +110,7 @@ internal constructor(val activity: Activity, private val offers: List<DataOfferO
             }
         }
     }
+
     // stores and recycles views as they are scrolled off screen
     inner class ViewHolder internal constructor(itemView: View) : RecyclerView.ViewHolder(itemView),
         View.OnClickListener {
@@ -121,13 +124,12 @@ internal constructor(val activity: Activity, private val offers: List<DataOfferO
         internal val offerProgressBar = itemView.findViewById(R.id.offerProgressBar) as ProgressBar
         internal val offerProgressTextView = itemView.findViewById(R.id.offerProgressTextView) as TextView
 
-
         init {
             itemView.setOnClickListener(this)
         }
 
         override fun onClick(view: View) {
-            if (mClickListener != null) mClickListener !!.onItemClick(view, adapterPosition)
+            if (mClickListener != null) mClickListener!!.onItemClick(view, adapterPosition)
         }
     }
 

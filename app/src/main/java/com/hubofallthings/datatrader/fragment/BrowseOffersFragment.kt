@@ -8,28 +8,20 @@ import android.view.ViewGroup
 import com.hubofallthings.datatrader.R
 import com.hubofallthings.datatrader.service.BrowseOffersServices
 
-
-class BrowseOffersFragment : Fragment() , View.OnClickListener {
+class BrowseOffersFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View?  {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.browse_offer_fragment, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        if(activity!=null){
+        if (activity != null) {
             BrowseOffersServices(activity!!).getOffers()
-        }
-    }
-
-
-    override fun onClick(v: View?) {
-        when(v?.id){
         }
     }
 }

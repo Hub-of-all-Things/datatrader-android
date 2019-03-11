@@ -11,5 +11,4 @@ class DrawerModel {
     fun setNames(name: String) {
         this.name = name
     }
-
 }

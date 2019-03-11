@@ -24,8 +24,8 @@ class CipherWrapper(private val transformation: String) {
         var TRANSFORMATION_SYMMETRIC = "AES/CBC/PKCS7Padding"
 
         val IV_SEPARATOR = "]"
-
     }
+
     private val cipher: Cipher = Cipher.getInstance(transformation)
 
     /**
@@ -73,9 +73,9 @@ class CipherWrapper(private val transformation: String) {
             val ivString = split[0]
             encodedString = split[1]
             val ivSpec = IvParameterSpec(Base64.decode(ivString, Base64.DEFAULT))
-            if(key != null){
+            if (key != null) {
                 cipher.init(Cipher.DECRYPT_MODE, key, ivSpec)
-            } else{
+            } else {
                 return ""
             }
         } else {
@@ -87,9 +87,9 @@ class CipherWrapper(private val transformation: String) {
         return try {
             val decodedData = cipher.doFinal(encryptedData)
             String(decodedData)
-        }catch (e : BadPaddingException){
+        } catch (e: BadPaddingException) {
             ""
-        }catch (e : IllegalBlockSizeException){
+        } catch (e: IllegalBlockSizeException) {
             ""
         }
     }

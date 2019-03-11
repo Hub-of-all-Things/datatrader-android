@@ -23,7 +23,7 @@ object Versions {
 
     val kotlin = "1.3.11"
 
-    val hatApi = "0.0.31.3"
+    val hatApi = "0.0.31.7"
     val googleServices = "4.0.1"
     val firebase = "16.0.4"
 

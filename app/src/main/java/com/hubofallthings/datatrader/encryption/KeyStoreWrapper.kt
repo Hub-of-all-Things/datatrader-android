@@ -73,7 +73,7 @@ class KeyStoreWrapper(private val context: Context, defaultKeyStoreName: String)
      * Generates symmetric [KeyProperties.KEY_ALGORITHM_AES] key with default [KeyProperties.BLOCK_MODE_CBC] and
      * [KeyProperties.ENCRYPTION_PADDING_PKCS7] using default provider.
      */
-    fun generateDefaultSymmetricKey(): SecretKey {
+    private fun generateDefaultSymmetricKey(): SecretKey {
         val keyGenerator = KeyGenerator.getInstance("AES")
         return keyGenerator.generateKey()
     }
@@ -84,21 +84,22 @@ class KeyStoreWrapper(private val context: Context, defaultKeyStoreName: String)
      */
     @TargetApi(Build.VERSION_CODES.M)
     fun createAndroidKeyStoreSymmetricKey(
-            alias: String,
-            userAuthenticationRequired: Boolean = false,
-            invalidatedByBiometricEnrollment: Boolean = true,
-            userAuthenticationValidityDurationSeconds: Int = -1,
-            userAuthenticationValidWhileOnBody: Boolean = true): SecretKey {
+        alias: String,
+        userAuthenticationRequired: Boolean = false,
+        invalidatedByBiometricEnrollment: Boolean = true,
+        userAuthenticationValidityDurationSeconds: Int = -1,
+        userAuthenticationValidWhileOnBody: Boolean = true
+    ): SecretKey {
 
         val keyGenerator = KeyGenerator.getInstance(KeyProperties.KEY_ALGORITHM_AES, "AndroidKeyStore")
         val builder = KeyGenParameterSpec.Builder(alias, KeyProperties.PURPOSE_ENCRYPT or KeyProperties.PURPOSE_DECRYPT)
-                .setBlockModes(KeyProperties.BLOCK_MODE_CBC)
-                // Require the user to authenticate with a fingerprint to authorize every use of the key
-                .setUserAuthenticationRequired(userAuthenticationRequired)
-                .setEncryptionPaddings(KeyProperties.ENCRYPTION_PADDING_PKCS7)
-                .setUserAuthenticationValidityDurationSeconds(userAuthenticationValidityDurationSeconds)
+            .setBlockModes(KeyProperties.BLOCK_MODE_CBC)
+            // Require the user to authenticate with a fingerprint to authorize every use of the key
+            .setUserAuthenticationRequired(userAuthenticationRequired)
+            .setEncryptionPaddings(KeyProperties.ENCRYPTION_PADDING_PKCS7)
+            .setUserAuthenticationValidityDurationSeconds(userAuthenticationValidityDurationSeconds)
         // Not working on api 23, try higher ?
-        //.setRandomizedEncryptionRequired(false)
+        // .setRandomizedEncryptionRequired(false)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             builder.setInvalidatedByBiometricEnrollment(invalidatedByBiometricEnrollment)
             builder.setUserAuthenticationValidWhileOnBody(userAuthenticationValidWhileOnBody)
@@ -130,11 +131,11 @@ class KeyStoreWrapper(private val context: Context, defaultKeyStoreName: String)
         endDate.add(Calendar.YEAR, 20)
 
         val builder = KeyPairGeneratorSpec.Builder(context)
-                .setAlias(alias)
-                .setSerialNumber(BigInteger.ONE)
-                .setSubject(X500Principal("CN=${alias} CA Certificate"))
-                .setStartDate(startDate.time)
-                .setEndDate(endDate.time)
+            .setAlias(alias)
+            .setSerialNumber(BigInteger.ONE)
+            .setSubject(X500Principal("CN=$alias CA Certificate"))
+            .setStartDate(startDate.time)
+            .setEndDate(endDate.time)
 
         generator.initialize(builder.build())
     }
@@ -142,8 +143,8 @@ class KeyStoreWrapper(private val context: Context, defaultKeyStoreName: String)
     @TargetApi(Build.VERSION_CODES.M)
     private fun initGeneratorWithKeyGenParameterSpec(generator: KeyPairGenerator, alias: String) {
         val builder = KeyGenParameterSpec.Builder(alias, KeyProperties.PURPOSE_ENCRYPT or KeyProperties.PURPOSE_DECRYPT)
-                .setBlockModes(KeyProperties.BLOCK_MODE_ECB)
-                .setEncryptionPaddings(KeyProperties.ENCRYPTION_PADDING_RSA_PKCS1)
+            .setBlockModes(KeyProperties.BLOCK_MODE_ECB)
+            .setEncryptionPaddings(KeyProperties.ENCRYPTION_PADDING_RSA_PKCS1)
         generator.initialize(builder.build())
     }
 

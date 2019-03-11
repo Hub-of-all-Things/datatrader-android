@@ -16,25 +16,24 @@ import android.widget.TextView
 import com.hubofallthings.datatrader.R
 import kotlinx.android.synthetic.main.activity_onboarding.*
 
-class OnboardingActivity : AppCompatActivity(){
+class OnBoardingActivity : AppCompatActivity() {
     private var viewPager: ViewPager? = null
     private var dotsLayout: LinearLayout? = null
     private var layouts: IntArray? = null
     private var btnSkip: Button? = null
     private var btnNext: Button? = null
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_onboarding)
 
-        viewPager = findViewById<ViewPager>(R.id.view_pager)
-        dotsLayout = findViewById<LinearLayout>(R.id.layoutDots)
-        btnSkip = findViewById<Button>(R.id.btn_skip)
-        btnNext = findViewById<Button>(R.id.btn_next)
+        viewPager = findViewById(R.id.view_pager)
+        dotsLayout = findViewById(R.id.layoutDots)
+        btnSkip = findViewById(R.id.btn_skip)
+        btnNext = findViewById(R.id.btn_next)
 
         layouts =
-                intArrayOf(R.layout.onboarding_exchange, R.layout.onboarding_monetise,R.layout.onboarding_donate)
+            intArrayOf(R.layout.onboarding_exchange, R.layout.onboarding_monetise, R.layout.onboarding_donate)
 
         // adding bottom dots
         addBottomDots(0)
@@ -48,7 +47,7 @@ class OnboardingActivity : AppCompatActivity(){
         btnNext!!.setOnClickListener {
             // checking for last page
             // if last page home screen will be launched
-            val current = getItem(+ 1)
+            val current = getItem(+1)
             if (current < layouts!!.size) {
                 // move to next screen
                 viewPager?.currentItem = current
@@ -59,10 +58,7 @@ class OnboardingActivity : AppCompatActivity(){
     }
 
     private fun addBottomDots(currentPage: Int) {
-        val dots : Array<TextView?> = arrayOfNulls(layouts!!.size)
-
-        val colorsActive = resources.getIntArray(R.array.array_dot_active)
-        val colorsInactive = resources.getIntArray(R.array.array_dot_inactive)
+        val dots: Array<TextView?> = arrayOfNulls(layouts!!.size)
 
         dotsLayout?.removeAllViews()
         for (i in 0 until dots.size) {
@@ -73,7 +69,7 @@ class OnboardingActivity : AppCompatActivity(){
             dotsLayout?.addView(dots[i])
         }
 
-        if (dots.isNotEmpty()){
+        if (dots.isNotEmpty()) {
             dots[currentPage]?.setTextColor(resources.getColor(R.color.dot_light_screen))
         }
     }
@@ -85,7 +81,8 @@ class OnboardingActivity : AppCompatActivity(){
     private fun launchHomeScreen() {
         val sharedPreferencesEditor = PreferenceManager.getDefaultSharedPreferences(this).edit()
         sharedPreferencesEditor.putBoolean(
-            "onboarding", true)
+            "onboarding", true
+        )
         sharedPreferencesEditor.apply()
         finish()
     }
@@ -126,7 +123,7 @@ class OnboardingActivity : AppCompatActivity(){
         override fun instantiateItem(container: ViewGroup, position: Int): Any {
             layoutInflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
 
-            val view = layoutInflater !!.inflate(layouts!![position], container, false)
+            val view = layoutInflater!!.inflate(layouts!![position], container, false)
             container.addView(view)
 
             return view

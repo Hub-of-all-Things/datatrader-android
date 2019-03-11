@@ -16,16 +16,17 @@ class ConfirmationOfferActivity : AppCompatActivity(), View.OnClickListener {
         viewMyOffersBtn.setOnClickListener(this)
         backToBrowseBtn.setOnClickListener(this)
     }
+
     override fun onClick(v: View?) {
-        when(v?.id){
-            R.id.viewMyOffersBtn->{
-                val intent = Intent(this,DrawerActivity::class.java)
+        when (v?.id) {
+            R.id.viewMyOffersBtn -> {
+                val intent = Intent(this, DrawerActivity::class.java)
                 intent.putExtra("open_fragment", 1)
                 startActivity(intent)
                 finishAffinity()
             }
-            R.id.backToBrowseBtn->{
-                startActivity(Intent(this,DrawerActivity::class.java))
+            R.id.backToBrowseBtn -> {
+                startActivity(Intent(this, DrawerActivity::class.java))
                 finishAffinity()
             }
         }

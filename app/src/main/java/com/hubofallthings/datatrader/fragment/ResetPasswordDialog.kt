@@ -19,11 +19,10 @@ class ResetPasswordDialog : DialogFragment() {
         val acceptButton = promptView.findViewById<Button>(R.id.dialog_accept_button)
 
         acceptButton.setOnClickListener {
-            //passwordS
             val email = tag
-            Log.i("dialogMail",email)
+            Log.i("dialogMail", email)
             dismiss()
-            if(activity!=null)
+            if (activity != null)
                 HATPasswordServices(activity).resetPasswordManager(email)
         }
         builder.setView(promptView)

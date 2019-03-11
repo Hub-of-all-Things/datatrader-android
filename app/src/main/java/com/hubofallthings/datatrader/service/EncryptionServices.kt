@@ -84,6 +84,7 @@ class EncryptionServices(context: Context) {
 
     private fun decryptWithDefaultSymmetricKey(data: String, keyPassword: String): String {
         val masterKey = keyStoreWrapper.getDefaultKeyStoreSymmetricKey(MASTER_KEY, keyPassword)
-        return masterKey?.let { CipherWrapper(CipherWrapper.TRANSFORMATION_SYMMETRIC).decrypt(data, masterKey, true) } ?: ""
+        return masterKey?.let { CipherWrapper(CipherWrapper.TRANSFORMATION_SYMMETRIC).decrypt(data, masterKey, true) }
+            ?: ""
     }
 }

@@ -25,8 +25,8 @@ import java.io.Serializable
 import java.text.SimpleDateFormat
 import java.util.*
 
-class CompletedOffersAdapter// data is passed into the constructor
-internal constructor(val activity: Activity, private val offers: List<DataOfferObject>,private val header : Triple<Int,Int,Int>):
+class CompletedOffersAdapter
+internal constructor(val activity: Activity, private val offers: List<DataOfferObject>, private val header: Triple<Int, Int, Int>) :
     RecyclerView.Adapter<CompletedOffersAdapter.ViewHolder>() {
     private val TAG = BrowseOffersAdapter::class.java.simpleName
     private val mInflater: LayoutInflater = LayoutInflater.from(activity)
@@ -42,17 +42,16 @@ internal constructor(val activity: Activity, private val offers: List<DataOfferO
         .centerCrop()
         .transforms(transformationCornerHeader)
 
-    val thumbnail = Glide.with(activity)
+    private val thumbnail = Glide.with(activity)
         .load(R.drawable.browse_offers_placeholder)
         .apply(requestOptions)
 
-
     // inflates the row layout from xml when needed
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val viewId = if(viewType==TYPE_HEADER){
+        val viewId = if (viewType == TYPE_HEADER) {
             R.layout.complete_offers_header
-        }else {
-           R.layout.browse_offers_item
+        } else {
+            R.layout.browse_offers_item
         }
         val view = mInflater.inflate(viewId, parent, false)
         return ViewHolder(view)
@@ -60,12 +59,12 @@ internal constructor(val activity: Activity, private val offers: List<DataOfferO
 
     // binds the data to the view and textview in each row
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        if(isPositionHeader(position)){
+        if (isPositionHeader(position)) {
             holder.headerVoucher?.text = header.first.toString()
-            holder.headerCash?.text = activity.getString(R.string.cash_earned_value,header.second.toString())
+            holder.headerCash?.text = activity.getString(R.string.cash_earned_value, header.second.toString())
             holder.headerPannel?.text = header.third.toString()
         } else {
-            val offer = offers[position-1]
+            val offer = offers[position - 1]
             holder.browseSubtitle?.text = offer.shortDescription
             holder.browseTitle?.text = offer.title
             holder.expiredBrowseDate?.text =
@@ -88,7 +87,7 @@ internal constructor(val activity: Activity, private val offers: List<DataOfferO
 
     // total number of rows
     override fun getItemCount(): Int {
-        return offers.size+1
+        return offers.size + 1
     }
 
     private fun isPositionHeader(position: Int): Boolean {
@@ -99,19 +98,20 @@ internal constructor(val activity: Activity, private val offers: List<DataOfferO
             return TYPE_HEADER
         return TYPE_ITEM
     }
-    private fun footerView(holder: ViewHolder , offer : DataOfferObject){
+    private fun footerView(holder: ViewHolder, offer: DataOfferObject) {
         val state = DataOfferStatusManager.getState(offer)
-        when(state){
-
+        when (state) {
             DataOfferStatusManager.Accepted -> {
-                DataOfferStatusManager.setupProgressBarOld(offer,holder.offerProgressBar!!,holder.offerProgressTextView!!,activity)
+                DataOfferStatusManager.setupProgressBarOld(offer, holder.offerProgressBar!!, holder.offerProgressTextView!!, activity)
                 holder.myOfferBottomLayout?.visibility = View.VISIBLE
             }
             DataOfferStatusManager.Completed -> {
                 holder.myOfferBottomLayout?.visibility = View.VISIBLE
-                DataOfferStatusManager.setupProgressBarOld(offer,holder.offerProgressBar!!,holder.offerProgressTextView!!,activity)
+                DataOfferStatusManager.setupProgressBarOld(offer, holder.offerProgressBar!!, holder.offerProgressTextView!!, activity)
             }
-            DataOfferStatusManager.Available -> {holder.browseOfferBottomLayout?.visibility = View.VISIBLE}
+            DataOfferStatusManager.Available -> {
+                holder.browseOfferBottomLayout?.visibility = View.VISIBLE
+            }
         }
     }
     // stores and recycles views as they are scrolled off screen
@@ -131,8 +131,6 @@ internal constructor(val activity: Activity, private val offers: List<DataOfferO
         internal val headerCash = itemView.findViewById(R.id.cashEarnedValue) as? TextView
         internal val headerPannel = itemView.findViewById(R.id.pannelJoinedValue) as? TextView
 
-
-
         init {
             itemView.setOnClickListener(this)
         }
@@ -148,7 +146,7 @@ internal constructor(val activity: Activity, private val offers: List<DataOfferO
 
     // convenience method for getting data at click position
     fun getItem(id: Int): DataOfferObject {
-        return offers[id-1]
+        return offers[id - 1]
     }
 
     // allows clicks events to be caught

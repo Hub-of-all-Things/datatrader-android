@@ -13,7 +13,6 @@ import android.content.ClipboardManager
 import android.content.Context
 import android.widget.Toast
 
-
 class RewardCopyClipboardDialog : DialogFragment() {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
@@ -25,12 +24,11 @@ class RewardCopyClipboardDialog : DialogFragment() {
         val cancelButton = promptView.findViewById<TextView>(R.id.cancelDialog)
 
         val voucher = tag
-        rewardTxt.text = String.format(getString(R.string.your_voucher_is),voucher)
-
+        rewardTxt.text = String.format(getString(R.string.your_voucher_is), voucher)
 
         acceptButton.setOnClickListener {
             copyText(voucher)
-            Toast.makeText(activity,"Copied",Toast.LENGTH_SHORT).show()
+            Toast.makeText(activity, "Copied", Toast.LENGTH_SHORT).show()
             dismiss()
         }
         cancelButton.setOnClickListener {
@@ -39,7 +37,7 @@ class RewardCopyClipboardDialog : DialogFragment() {
         builder.setView(promptView)
         return builder.create()
     }
-    fun copyText (value : String){
+    private fun copyText(value: String) {
         val clipboard = activity.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager?
         val clip = ClipData.newPlainText("reward", value)
         clipboard!!.primaryClip = clip
